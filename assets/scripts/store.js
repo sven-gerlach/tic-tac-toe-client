@@ -3,4 +3,6 @@
 const store = {
 }
 
-module.exports = store
+Object.assign(module.exports, {
+  store
+})

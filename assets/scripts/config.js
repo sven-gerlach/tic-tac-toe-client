@@ -12,6 +12,6 @@ if (window.location.hostname === 'localhost') {
   apiUrl = apiUrls.production
 }
 
-module.exports = {
+Object.assign(module.exports, {
   apiUrl
-}
+})

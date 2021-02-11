@@ -12,4 +12,6 @@ const limit = (str, length) => {
   }
 }
 
-module.exports = limit
+Object.assign(module.exports, {
+  limit
+})
