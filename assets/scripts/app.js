@@ -7,5 +7,6 @@ $(() => {
   $('#sign-in-button').on('click', display.signInPage)
   $('#sign-up-button').on('click', display.signUpPage)
   $('.return-to-welcome-page').on('click', display.welcomePageDisplay)
+  $('#sign-in-form').on('submit', events.onSignIn)
   $('#sign-up-form').on('submit', events.onSignUp)
 })

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="https://tic-tac-toe-api-development.herokuapp.com"
-URL_PATH="/sign-up"
+URL_PATH="/sign-in"
 
 curl ${API}${URL_PATH} \
   --include \
@@ -10,8 +10,7 @@ curl ${API}${URL_PATH} \
   --data '{
   "credentials": {
     "email": "'"${EMAIL}"'",
-    "password": "'"${PW}"'",
-    "password_confirmation": "'"${PW}"'"
+    "password": "'"${PW}"'"
     }
   }'
 
