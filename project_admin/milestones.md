@@ -4,7 +4,8 @@
 1.  [x] Review [game-project-scope-study](https://git.generalassemb.ly/ga-wdi-boston/game-project-scope-study)
 1.  [x] User Stories
 1.  [x] Review [project-planning-wireframes-practice](https://git.generalassemb.ly/ga-wdi-boston/project-planning-wireframes-practice)
-1.  [x] Wire Frames
+1.  [x] Wire Frames [tic-tac-toe](https://imgur.com/a/58ytysC)
+1.  [x] Draft detailed flow-chart and key objects needed
 
 ### Set Up
 
@@ -13,7 +14,7 @@
 ----
 
 ### Draft HTML
--[ ] Convert wireframe into basic unformatted HTML, focusing on application requirements for now (add in stretch goals if time)
+-[x] Convert wireframe into basic unformatted HTML, focusing on application requirements for now (add in stretch goals if time)
 
 ### Authentication
 
