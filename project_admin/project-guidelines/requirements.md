@@ -51,7 +51,8 @@
 1.  [ ] **Do not** delete your repository at any time or start over.
 1.  [ ] **Do not** rely on refreshing the page for any functionality.
 1.  [ ] **Do not** have any user-facing bugs.
-  -  Display non-functional buttons, nor buttons that do not successfully complete a task.
-  -  Show actions at inappropriate times (example: sign out button when not signed in).
+    -  Display non-functional buttons, nor buttons that do not successfully complete a task.
+    -  Show actions at inappropriate times (example: sign out button when not signed in).
 1.  [ ] **Do not** use browser alerts or prompts.
 1.  [ ] **Do not** display console logs, errors or warnings in the console.
+1.  [ ] Provide [feedback / questions](feedback.md) through the official channel and early (if needed)

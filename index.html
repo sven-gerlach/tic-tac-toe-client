@@ -12,6 +12,68 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <section id="welcome-section">
+        <h1>Welcome to Tic Tac Toe</h1>
+        <button>Sign In</button>
+        <button>Create Account</button>
+      </section>
+      <section id="create-account-section">
+        <h1>Create an Account</h1>
+        <form id="create-account-form">
+          <input name="credentials[email]" type="email" placeholder="email" required>
+          <input name="credentials[password]" type="password" placeholder="password" required>
+          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" required>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="sign-in-section">
+        <h1>Sign In</h1>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="email" required>
+          <input name="credentials[password]" type="password" placeholder="password" required>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <nav>
+        <button id="game-play-button">Game Play</button>
+        <button id="start-game-button">Let's Play</button>
+        <button id="game-stats-button">My Game Stats</button>
+        <button id="account-button">Account</button>
+        <button id="sign-out-button">Sign Out</button>
+      </nav>
+      <section id="game-play-section">
+        <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
+      </section>
+      <section id="game-section">
+        <p>[show game board</p>
+        <!--todo: format simple game board-->
+        <div id="game-board">
+          <div data-gameBoardIndex="0" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="1" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="2" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="3" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="4" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="5" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="6" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="7" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="8" data-playerSymbol="null" ></div>
+        </div>
+      </section>
+      <section id="game-stats-section">
+        <p>[Show table of game stats]</p>
+      </section>
+      <section id="account-section">
+        <form id="change-password-form">
+          <input name="passwords[old]" type="password" placeholder="old password" required>
+          <input name="passwords[new]" type="password" placeholder="new password" required>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="game-result-section">
+        <p>You won / lost / drew</p>
+        <p>Would you like to play again?</p>
+        <button id="play-again">Yes</button>
+        <button id="stop-playing">No</button>
+      </section>
     </body>
 </html>
