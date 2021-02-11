@@ -1,11 +1,11 @@
 'use strict'
-
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
+const display = require('./display')
+const events = require('./events')
 
 $(() => {
-  $('')
+  display.welcomePageDisplay()
+  $('#sign-in-button').on('click', display.signInPage)
+  $('#sign-up-button').on('click', display.signUpPage)
+  $('.return-to-welcome-page').on('click', display.welcomePageDisplay)
+  $('#sign-up-form').on('submit', events.onSignUp)
 })

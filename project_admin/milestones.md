@@ -73,6 +73,7 @@
 
 ## Final Submission Checklist
 -[ ] Debug, test edge and corner cases
+-[ ] Remove all console.log()
 -[ ] [Basic requirements](project-guidelines/requirements.md)
   -[ ] Deployment requirements
   -[ ] Version control requirements

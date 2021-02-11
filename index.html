@@ -14,17 +14,8 @@
     <body>
       <section id="welcome-section">
         <h1>Welcome to Tic Tac Toe</h1>
-        <button>Sign In</button>
-        <button>Create Account</button>
-      </section>
-      <section id="create-account-section">
-        <h1>Create an Account</h1>
-        <form id="create-account-form">
-          <input name="credentials[email]" type="email" placeholder="email" required>
-          <input name="credentials[password]" type="password" placeholder="password" required>
-          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" required>
-          <button type="submit">Submit</button>
-        </form>
+        <button id="sign-in-button">Sign In</button>
+        <button id="sign-up-button">Create Account</button>
       </section>
       <section id="sign-in-section">
         <h1>Sign In</h1>
@@ -32,6 +23,17 @@
           <input name="credentials[email]" type="email" placeholder="email" required>
           <input name="credentials[password]" type="password" placeholder="password" required>
           <button type="submit">Submit</button>
+          <button class="return-to-welcome-page">Return</button>
+        </form>
+      </section>
+      <section id="sign-up-section">
+        <h1>Create an Account</h1>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="email" required>
+          <input name="credentials[password]" type="password" placeholder="password" required>
+          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" required>
+          <button type="submit">Submit</button>
+          <button class="return-to-welcome-page">Return</button>
         </form>
       </section>
       <nav id="nav-section">
