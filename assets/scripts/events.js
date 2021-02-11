@@ -1,9 +1,9 @@
 'use strict'
-
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
+const display = require('./display')
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -45,9 +45,16 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onStartGame = function () {
+  display.gamePage()
+  // invoke ajax call to initialize game object on the server and retrieve game object
+  // create gameBoard object
+}
+
 Object.assign(module.exports, {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onStartGame
 })

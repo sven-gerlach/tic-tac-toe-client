@@ -19,11 +19,11 @@
 ### Authentication
 
 1. [x] Review [api-token-auth](https://git.generalassemb.ly/ga-wdi-boston/jquery-ajax-token-auth) and [game API authentication docs](https://git.generalassemb.ly/ga-wdi-boston/game-project-api/blob/master/docs/user.md)
-1. [ ] Sign Up (curl then web app)
-1. [ ] Sign In (curl then web app)
-1. [ ] Change Password (curl then web app)
-1. [ ] Sign Out (curl then web page)
-1. [ ] All API calls have success or failure messages
+1. [x] Sign Up (curl then web app)
+1. [x] Sign In (curl then web app)
+1. [x] Change Password (curl then web app)
+1. [x] Sign Out (curl then web page)
+1. [x] All API calls have success or failure messages
 1.  [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Create New Game

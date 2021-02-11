@@ -8,7 +8,7 @@ $(() => {
   $('#sign-in-button').on('click', display.signInPage)
   $('#sign-up-button').on('click', display.signUpPage)
   $('#game-play-button').on('click', display.gamePlayPage)
-  $('#start-game-button').on('click', display.gamePage)
+  $('#start-game-button').on('click', events.onStartGame)
   $('#game-stats-button').on('click', display.gameStatsPage)
   $('#account-button').on('click', display.accountPage)
   $('#change-password-form').on('submit', events.onChangePassword)
