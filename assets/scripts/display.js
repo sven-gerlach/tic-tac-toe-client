@@ -1,3 +1,5 @@
+'use strict'
+
 const welcomePageDisplay = function () {
   $('#welcome-section').show()
   $('#sign-up-section').hide()

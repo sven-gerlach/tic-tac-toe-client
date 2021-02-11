@@ -1,3 +1,4 @@
+'use strict'
 const config = require('./config')
 const store = require('./store')
 
@@ -31,8 +32,21 @@ const signOut = function () {
   })
 }
 
+const changePassword = function (data) {
+  console.log('call changePassword')
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/change-password',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
+  })
+}
+
 Object.assign(module.exports, {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword
 })

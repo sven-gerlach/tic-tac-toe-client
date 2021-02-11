@@ -1,3 +1,4 @@
+'use strict'
 const display = require('./display')
 
 const signUpSuccess = function (data) {
@@ -39,11 +40,29 @@ const signOutFailure = function () {
   console.log('call signOutFailure')
 }
 
+const changePasswordSuccess = function () {
+  console.log('call changePasswordSuccess')
+  $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('success')
+  setTimeout(() => {
+    $('#account-section .user-notification').text('').removeClass('success')
+  }, 5 * 1000)
+}
+
+const changePasswordFailure = function () {
+  console.log('call changePasswordFailure')
+  $('#account-section .user-notification').text('Oh no, something went wrong! Your password has not been changed.').addClass('failure')
+  setTimeout(() => {
+    $('#account-section .user-notification').text('').removeClass('failure')
+  }, 5 * 1000)
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 })
