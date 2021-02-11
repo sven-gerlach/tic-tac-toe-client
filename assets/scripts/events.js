@@ -5,7 +5,7 @@ const store = require('./store')
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('call onSignIn: success')
+  console.log('call onSignIn')
   const formData = getFormFields(event.target)
   api.signIn(formData)
     .then(data => {
@@ -17,18 +17,24 @@ const onSignIn = function (event) {
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('call onSignUp: success')
+  console.log('call onSignUp')
   const formData = getFormFields(event.target)
   api.signUp(formData)
     .then(data => {
       store.user = data.user
       ui.signUpSuccess()
-      console.log(store.user)
     })
     .catch(ui.signUpFailure)
 }
 
+const onSignOut = function () {
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 Object.assign(module.exports, {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut
 })

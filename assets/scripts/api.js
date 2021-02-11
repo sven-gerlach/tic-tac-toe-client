@@ -1,8 +1,9 @@
 const config = require('./config')
+const store = require('./store')
 
 // todo: add auto sign-in feature
 const signUp = function (data) {
-  console.log('call signUp: success')
+  console.log('call signUp')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up',
@@ -11,7 +12,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log('call signIn: success')
+  console.log('call signIn')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -19,7 +20,19 @@ const signIn = function (data) {
   })
 }
 
+const signOut = function () {
+  console.log('call signOut')
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 Object.assign(module.exports, {
   signUp,
-  signIn
+  signIn,
+  signOut
 })
