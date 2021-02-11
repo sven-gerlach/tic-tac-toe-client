@@ -1,1 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  > div {
+    display: flex;
+    background-color: lightgrey;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+}

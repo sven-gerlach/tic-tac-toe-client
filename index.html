@@ -34,7 +34,7 @@
           <button type="submit">Submit</button>
         </form>
       </section>
-      <nav>
+      <nav id="nav-section">
         <button id="game-play-button">Game Play</button>
         <button id="start-game-button">Let's Play</button>
         <button id="game-stats-button">My Game Stats</button>
@@ -45,22 +45,63 @@
         <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
       </section>
       <section id="game-section">
-        <p>[show game board</p>
-        <!--todo: format simple game board-->
         <div id="game-board">
-          <div data-gameBoardIndex="0" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="1" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="2" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="3" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="4" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="5" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="6" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="7" data-playerSymbol="null" ></div>
-          <div data-gameBoardIndex="8" data-playerSymbol="null" ></div>
+          <div data-gameBoardIndex="0" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="1" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="2" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="3" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="4" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="5" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="6" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="7" data-playerSymbol="" ></div>
+          <div data-gameBoardIndex="8" data-playerSymbol="" ></div>
         </div>
       </section>
       <section id="game-stats-section">
-        <p>[Show table of game stats]</p>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="3">Summary Game Statistics</th>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <th>Games</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Started</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Unfinished</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Finished</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Won</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Draw</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Lost</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </section>
       <section id="account-section">
         <form id="change-password-form">
