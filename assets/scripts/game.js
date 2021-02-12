@@ -64,8 +64,8 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
 
 const gameLoop = function (game) {
   console.log('call gameLoop')
+  ui.displayNextPlayer(game.player)
   $('#game-board').on('click', (event) => {
-    ui.displayNextPlayer(game.player)
     if (game.isValidMove(event.target)) {
       const selectedCell = $(event.target).data('game-board-index')
       let apiDataFeed
@@ -74,15 +74,15 @@ const gameLoop = function (game) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(console.log('updateGame: success'))
-          .catch(console.error('updateGame: failure'))
+          .then(console.log)
+          .catch(console.error)
         ui.declareWinner(game.player)
       } else if (game.isDraw()) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(console.log('updateGame: success'))
-          .catch(console.error('updateGame: failure'))
+          .then(console.log)
+          .catch(console.error)
         ui.declareDraw()
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
@@ -90,6 +90,7 @@ const gameLoop = function (game) {
           .then(console.log)
           .catch(console.error)
         game.setNextPlayer()
+        ui.displayNextPlayer(game.player)
       }
     } else {
       ui.displayInvalidMove(game.player)

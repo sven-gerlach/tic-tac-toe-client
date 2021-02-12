@@ -53,7 +53,6 @@ const onStartGame = function () {
   api.startGame()
     .then((response) => {
       store.game = response.game
-      console.log(store)
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
