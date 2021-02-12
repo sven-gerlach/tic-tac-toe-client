@@ -5,6 +5,7 @@ const ui = require('./ui')
 const store = require('./store').store
 const display = require('./display')
 const gameModule = require('./game')
+const GameStats = require('./game-stats').GameStats
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -51,7 +52,7 @@ const onStartGame = function () {
   console.log('call onStartGame')
   display.gamePage()
   api.startGame()
-    .then((response) => {
+    .then(response => {
       store.game = response.game
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
@@ -59,6 +60,19 @@ const onStartGame = function () {
       gameModule.gameLoop(game)
     })
     .catch(ui.startGameFailure)
+}
+
+// todo: instead of storing it the data can also be passed on through the promise object
+// displays the game stats page, invokes API call to collect all played games
+const onGameStats = function () {
+  display.gameStatsPage()
+  api.getGames()
+    .then(response => {
+      store.games = response.games
+      const gameStats = new GameStats(store.games)
+      ui.displayGameStats(gameStats)
+    })
+    .catch(console.error)
 }
 
 const onExitGame = function () {
@@ -72,5 +86,6 @@ Object.assign(module.exports, {
   onSignOut,
   onChangePassword,
   onStartGame,
-  onExitGame
+  onExitGame,
+  onGameStats
 })

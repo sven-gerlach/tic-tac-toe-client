@@ -60,9 +60,12 @@
 
 ### View Games
 
-1. [ ] Add Games played button
-1. [ ] When Add Games button is clicked make [GET games API call](https://git.generalassemb.ly/ga-wdi-boston/game-project-api/blob/master/docs/game.md#index-get-games) and display the number of games returned
-1.  [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+1. [x] Add Games played button
+1. [x] When Add Games button is clicked make [GET games API call](https://git.generalassemb.ly/ga-wdi-boston/game-project-api/blob/master/docs/game.md#index-get-games) and display the number of games returned
+1.  [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+
+### Formatting / Styling
+1. [ ] Use jQuery, Bootstrap, and SCSS
 
 ### Debug
 -[ ] test edge cases

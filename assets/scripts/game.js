@@ -62,6 +62,7 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   }
 }
 
+// todo: refactor game loop into its own module
 const gameLoop = function (game) {
   console.log('call gameLoop')
   ui.displayNextPlayer(game.player)

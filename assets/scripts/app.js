@@ -19,7 +19,7 @@ $(() => {
   // Main menu page with nav bar
   $('#game-play-button').on('click', display.gamePlayPage)
   $('#start-game-button').on('click', events.onStartGame)
-  $('#game-stats-button').on('click', display.gameStatsPage)
+  $('#game-stats-button').on('click', events.onGameStats)
   $('#account-button').on('click', display.accountPage)
 
   // On account page

@@ -94,6 +94,15 @@ const resetBoard = function () {
   $('#game-board div').text('')
 }
 
+const displayGameStats = function (gameStats) {
+  $('#started-absolute').text(gameStats.startedGames)
+  $('#unfinished-absolute').text(gameStats.unfinishedGames)
+  $('#finished-absolute').text(gameStats.finishedGames)
+  $('#started-percent').text(gameStats.startedGamesPercent)
+  $('#unfinished-percent').text(gameStats.unfinishedGamesPercent)
+  $('#finished-percent').text(gameStats.finishedGamesPercent)
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
@@ -110,5 +119,6 @@ Object.assign(module.exports, {
   drawSymbol,
   declareWinner,
   resetBoard,
-  declareDraw
+  declareDraw,
+  displayGameStats
 })
