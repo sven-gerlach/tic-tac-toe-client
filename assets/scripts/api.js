@@ -56,10 +56,23 @@ const startGame = function () {
   })
 }
 
+const updateGame = function (game, data) {
+  console.log('call updateGame')
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/games/' + game.id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
+  })
+}
+
 Object.assign(module.exports, {
   signUp,
   signIn,
   signOut,
   changePassword,
-  startGame
+  startGame,
+  updateGame
 })

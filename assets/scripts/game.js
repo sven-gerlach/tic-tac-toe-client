@@ -1,5 +1,6 @@
 'use strict'
 const ui = require('./ui')
+const api = require('./api')
 
 const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   this.cells = cells
@@ -43,26 +44,45 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   this.setNextPlayer = function () {
     (this.player === 'X') ? this.player = 'O' : this.player = 'X'
   }
+  this.resetGameBoard = function () {
+    this.over = true
+    $('#game-board').off()
+    ui.resetBoard()
+  }
+  this.getApiDataFeed = function (cellIndex) {
+    return {
+      game: {
+        cell: {
+          index: cellIndex,
+          value: this.player
+        },
+        over: this.over
+      }
+    }
+  }
 }
 
 const gameLoop = function (game) {
   console.log('call gameLoop')
-  // todo: update API
   $('#game-board').on('click', (event) => {
     ui.displayNextPlayer(game.player)
     if (game.isValidMove(event.target)) {
-      game.updateGameBoard($(event.target).data('game-board-index'), game.player)
+      const selectedCell = $(event.target).data('game-board-index')
+      let apiDataFeed
+      game.updateGameBoard(selectedCell, game.player)
       if (game.isWon()) {
-        game.over = true
-        $('#game-board').off()
-        ui.resetBoard()
+        game.resetGameBoard()
+        apiDataFeed = game.getApiDataFeed(selectedCell)
+        api.updateGame(game, apiDataFeed)
         ui.declareWinner(game.player)
       } else if (game.isDraw()) {
-        game.over = true
-        $('#game-board').off()
-        ui.resetBoard()
+        game.resetGameBoard()
+        apiDataFeed = game.getApiDataFeed(selectedCell)
+        api.updateGame(game, apiDataFeed)
         ui.declareDraw()
       } else {
+        apiDataFeed = game.getApiDataFeed(selectedCell)
+        api.updateGame(game, apiDataFeed)
         game.setNextPlayer()
       }
     } else {
