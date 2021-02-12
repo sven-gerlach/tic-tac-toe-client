@@ -74,15 +74,21 @@ const gameLoop = function (game) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
+          .then(console.log('updateGame: success'))
+          .catch(console.error('updateGame: failure'))
         ui.declareWinner(game.player)
       } else if (game.isDraw()) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
+          .then(console.log('updateGame: success'))
+          .catch(console.error('updateGame: failure'))
         ui.declareDraw()
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
+          .then(console.log('updateGame: success'))
+          .catch(console.error('updateGame: failure'))
         game.setNextPlayer()
       }
     } else {
