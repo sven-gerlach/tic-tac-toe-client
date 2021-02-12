@@ -5,6 +5,7 @@ const ui = require('./ui')
 const store = require('./store').store
 const display = require('./display')
 const gameModule = require('./game')
+const gameLoop = require('./game-loop').gameLoop
 const GameStats = require('./game-stats').GameStats
 
 const onSignIn = function (event) {
@@ -57,7 +58,7 @@ const onStartGame = function () {
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
-      gameModule.gameLoop(game)
+      gameLoop(game)
     })
     .catch(ui.startGameFailure)
 }
