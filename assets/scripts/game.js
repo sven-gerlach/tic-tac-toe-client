@@ -87,8 +87,8 @@ const gameLoop = function (game) {
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(console.log('updateGame: success'))
-          .catch(console.error('updateGame: failure'))
+          .then(console.log)
+          .catch(console.error)
         game.setNextPlayer()
       }
     } else {
