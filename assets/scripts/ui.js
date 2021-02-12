@@ -1,5 +1,8 @@
 'use strict'
 const display = require('./display')
+const GameStats = require('./game-stats').GameStats
+const store = require('./store').store
+const api = require('./api')
 
 const signUpSuccess = function (data) {
   console.log('call signUpSuccess')
@@ -20,6 +23,15 @@ const signInSuccess = function () {
   console.log('call signInSuccess')
   $('#sign-in-form').trigger('reset')
   display.gamePlayPage()
+
+  // update badge on open games button for # open games
+  api.getGames()
+    .then(response => {
+      store.games = response.games
+      const gameStats = new GameStats(store.games)
+      $('#open-games-button span').text(gameStats.openGames)
+    })
+    .catch(console.error)
 }
 
 const signInFailure = function () {
@@ -69,10 +81,10 @@ const displayNextPlayer = function (nextPlayer) {
 }
 
 const displayInvalidMove = function (nextPlayer) {
-  $('#game-section .user-notification').text('This field is already occupied. Please place your next move into an empty field.').addClass('failure')
+  $('#game-section .user-notification').text('This field is not available!').removeClass('alert-info').addClass('alert-warning')
   setTimeout(() => {
     displayNextPlayer(nextPlayer)
-    $('#game-section .user-notification').removeClass('failure')
+    $('#game-section .user-notification').removeClass('alert-warning').addClass('alert-info')
   }, 5 * 1000)
 }
 
@@ -96,11 +108,12 @@ const resetBoard = function () {
 
 const displayGameStats = function (gameStats) {
   $('#started-absolute').text(gameStats.startedGames)
-  $('#unfinished-absolute').text(gameStats.unfinishedGames)
+  $('#open-absolute').text(gameStats.openGames)
   $('#finished-absolute').text(gameStats.finishedGames)
   $('#started-percent').text(gameStats.startedGamesPercent)
-  $('#unfinished-percent').text(gameStats.unfinishedGamesPercent)
+  $('#open-percent').text(gameStats.openGamesPercent)
   $('#finished-percent').text(gameStats.finishedGamesPercent)
+  $('#open-games-button span').text(gameStats.openGames)
 }
 
 Object.assign(module.exports, {

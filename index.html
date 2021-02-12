@@ -39,17 +39,17 @@
         <div class="user-notification"></div>
       </section>
       <nav id="nav-section">
-        <button id="game-play-button">Game Play</button>
-        <button id="start-game-button">Let's Play</button>
-        <button id="game-stats-button">My Game Stats</button>
-        <button id="account-button">Account</button>
-        <button id="sign-out-button">Sign Out</button>
+        <button id="game-play-button" class="btn btn-primary">Game Play</button>
+        <button id="start-game-button" class="btn btn-primary">Let's Play</button>
+        <button id="open-games-button" class="btn btn-primary">Open Games <span class="badge badge-light"></span></button>
+        <button id="account-button" class="btn btn-primary">Account</button>
+        <button id="sign-out-button" class="btn btn-primary">Sign Out</button>
       </nav>
       <section id="game-play-section">
         <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
       </section>
       <section id="game-section">
-        <div class="user-notification"></div>
+        <div class="user-notification alert alert-info"></div>
         <div id="game-board">
           <div data-game-board-index="0"></div>
           <div data-game-board-index="1"></div>
@@ -63,33 +63,33 @@
         </div>
         <button id="exit-game">Exit Game</button>
       </section>
-      <section id="game-stats-section">
-        <table>
+      <section id="open-games-section">
+        <table class="table table-hover">
           <thead>
             <tr>
-              <th colspan="3">Summary Game Statistics</th>
+              <th colspan="3" scope="colgroup">Summary Game Statistics</th>
             </tr>
             <tr>
-              <td>&nbsp;</td>
-              <th>Games</th>
-              <th>%</th>
+              <th scope="col"></th>
+              <th scope="col">Games</th>
+              <th scope="col">%</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Started</td>
+              <th scope="row">Started</th>
               <td id="started-absolute"></td>
               <td id="started-percent"></td>
             </tr>
             <tr>
-              <td>Unfinished</td>
-              <td id="unfinished-absolute"></td>
-              <td id="unfinished-percent"></td>
-            </tr>
-            <tr>
-              <td>Finished</td>
+              <th scope="row">Finished</th>
               <td id="finished-absolute"></td>
               <td id="finished-percent"></td>
+            </tr>
+            <tr>
+              <th scope="row">Open</th>
+              <td id="open-absolute"></td>
+              <td id="open-percent"></td>
             </tr>
           </tbody>
         </table>

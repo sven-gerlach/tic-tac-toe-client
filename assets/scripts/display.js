@@ -7,7 +7,7 @@ const welcomePageDisplay = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
@@ -19,7 +19,7 @@ const signInPage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
@@ -31,7 +31,7 @@ const signUpPage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
@@ -43,7 +43,7 @@ const gamePlayPage = function () {
   $('#nav-section').show()
   $('#game-play-section').show()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
@@ -55,19 +55,19 @@ const gamePage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').show()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
 
-const gameStatsPage = function () {
+const openGamesPage = function () {
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').show()
+  $('#open-games-section').show()
   $('#account-section').hide()
   $('#game-result-section').hide()
 }
@@ -79,7 +79,7 @@ const accountPage = function () {
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').show()
   $('#game-result-section').hide()
 }
@@ -91,7 +91,7 @@ const gameResultPage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
-  $('#game-stats-section').hide()
+  $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').show()
 }
@@ -102,7 +102,7 @@ Object.assign(module.exports, {
   signUpPage,
   gamePlayPage,
   gamePage,
-  gameStatsPage,
+  openGamesPage,
   accountPage,
   gameResultPage
 })
