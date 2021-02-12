@@ -1,6 +1,6 @@
 'use strict'
 const config = require('./config')
-const store = require('./store')
+const store = require('./store').store
 
 // todo: add auto sign-in feature
 const signUp = function (data) {
@@ -44,9 +44,22 @@ const changePassword = function (data) {
   })
 }
 
+const startGame = function () {
+  console.log('call startGame')
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {}
+  })
+}
+
 Object.assign(module.exports, {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  startGame
 })

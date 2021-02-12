@@ -24,11 +24,11 @@
 1. [x] Change Password (curl then web app)
 1. [x] Sign Out (curl then web page)
 1. [x] All API calls have success or failure messages
-1.  [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
+1.  [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Create New Game
 
-1. [ ] Display New Game button when a user signs in
+1. [x] Display New Game button when a user signs in
 1. [ ] When New Game button is clicked display game board, start player as X, and make [POST games API call](https://git.generalassemb.ly/ga-wdi-boston/game-project-api/blob/master/docs/game.md#create-post-games) to create game
 1. [ ] Save the API response so you have access to the game ID and cells
 1.  [ ] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)

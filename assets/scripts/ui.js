@@ -56,6 +56,14 @@ const changePasswordFailure = function () {
   }, 5 * 1000)
 }
 
+const startGameSuccess = function () {
+  console.log('call startGameSuccess')
+}
+
+const startGameFailure = function () {
+  console.log('call startGameFailure')
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
@@ -64,5 +72,7 @@ Object.assign(module.exports, {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  startGameSuccess,
+  startGameFailure
 })

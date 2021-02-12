@@ -52,7 +52,7 @@ const gamePage = function () {
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
-  $('#nav-section').show()
+  $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').show() // todo: eventually need to replace nav with a return or stop game button
   $('#game-stats-section').hide()

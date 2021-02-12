@@ -2,8 +2,9 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('./store')
+const store = require('./store').store
 const display = require('./display')
+const gameModule = require('./game')
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -45,10 +46,20 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+// make ajax request and deal with returned promise by either instantiating gameBoard or displaying an error message to user
 const onStartGame = function () {
+  console.log('call onStartGame')
   display.gamePage()
-  // invoke ajax call to initialize game object on the server and retrieve game object
-  // create gameBoard object
+  api.startGame()
+    .then((response) => {
+      store.game = response.game
+      console.log(store)
+      ui.startGameSuccess()
+      const { cells, over, _id, owner, createdAt, updatedAt } = store.game
+      const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
+      gameModule.gameLoop(game)
+    })
+    .catch(ui.startGameFailure)
 }
 
 Object.assign(module.exports, {
