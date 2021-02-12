@@ -84,6 +84,18 @@ const accountPage = function () {
   $('#game-result-section').hide()
 }
 
+const gameResultPage = function () {
+  $('#welcome-section').hide()
+  $('#sign-in-section').hide()
+  $('#sign-up-section').hide()
+  $('#nav-section').hide()
+  $('#game-play-section').hide()
+  $('#game-section').hide()
+  $('#game-stats-section').hide()
+  $('#account-section').hide()
+  $('#game-result-section').show()
+}
+
 Object.assign(module.exports, {
   welcomePageDisplay,
   signInPage,
@@ -91,5 +103,6 @@ Object.assign(module.exports, {
   gamePlayPage,
   gamePage,
   gameStatsPage,
-  accountPage
+  accountPage,
+  gameResultPage
 })

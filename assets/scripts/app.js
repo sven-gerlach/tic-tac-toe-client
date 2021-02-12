@@ -29,5 +29,9 @@ $(() => {
   $('#sign-out-button').on('click', events.onSignOut)
 
   // On Game page
-  $('#exit-game').on('click', display.gamePlayPage) // todo: add saving the game state functionality with appropriate ajax request
+  $('#exit-game').on('click', events.onExitGame) // todo: add saving the game state functionality with appropriate ajax request
+
+  // On game-result page
+  $('#play-again').on('click', events.onStartGame)
+  $('#stop-playing').on('click', display.gamePlayPage)
 })

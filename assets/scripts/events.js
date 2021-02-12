@@ -53,7 +53,6 @@ const onStartGame = function () {
   api.startGame()
     .then((response) => {
       store.game = response.game
-      console.log(store)
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
@@ -62,10 +61,16 @@ const onStartGame = function () {
     .catch(ui.startGameFailure)
 }
 
+const onExitGame = function () {
+  display.gamePlayPage()
+  ui.resetBoard()
+}
+
 Object.assign(module.exports, {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  onStartGame
+  onStartGame,
+  onExitGame
 })

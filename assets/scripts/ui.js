@@ -64,6 +64,36 @@ const startGameFailure = function () {
   console.log('call startGameFailure')
 }
 
+const displayNextPlayer = function (nextPlayer) {
+  $('#game-section .user-notification').text(`Player ${nextPlayer}, it's your turn.`)
+}
+
+const displayInvalidMove = function (nextPlayer) {
+  $('#game-section .user-notification').text('This field is already occupied. Please place your next move into an empty field.').addClass('failure')
+  setTimeout(() => {
+    displayNextPlayer(nextPlayer)
+    $('#game-section .user-notification').removeClass('failure')
+  }, 5 * 1000)
+}
+
+const drawSymbol = function (symbol, index) {
+  $(`#game-board div[data-game-board-index=${index}]`).text(symbol)
+}
+
+const declareWinner = function (player) {
+  display.gameResultPage()
+  $('#game-result-section .user-notification').text(`Player ${player} has won the game`)
+}
+
+const declareDraw = function () {
+  display.gameResultPage()
+  $('#game-result-section .user-notification').text('It\'s a draw!')
+}
+
+const resetBoard = function () {
+  $('#game-board div').text('')
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
@@ -74,5 +104,11 @@ Object.assign(module.exports, {
   changePasswordSuccess,
   changePasswordFailure,
   startGameSuccess,
-  startGameFailure
+  startGameFailure,
+  displayNextPlayer,
+  displayInvalidMove,
+  drawSymbol,
+  declareWinner,
+  resetBoard,
+  declareDraw
 })
