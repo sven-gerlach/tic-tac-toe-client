@@ -20,7 +20,7 @@
         </nav>
       </section>
       <section id="sign-in-section">
-        <h1>Sign In</h1>
+        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
         <form id="sign-in-form">
           <input name="credentials[email]" type="email" placeholder="email" required>
           <input name="credentials[password]" type="password" placeholder="password" required>
@@ -30,15 +30,23 @@
         <div class="user-notification"></div>
       </section>
       <section id="sign-up-section">
-        <h1>Create an Account</h1>
+        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
         <form id="sign-up-form">
-          <input name="credentials[email]" type="email" placeholder="email" required>
-          <input name="credentials[password]" type="password" placeholder="password" required>
-          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" required>
-          <button type="submit">Submit</button>
-          <button class="return-to-welcome-page">Return</button>
+          <div class="form-group">
+            <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password" required>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button class="btn btn-secondary return-to-welcome-page">Return</button>
+          </div>
         </form>
-        <div class="user-notification"></div>
+        <div class="user-notification alert"></div>
       </section>
       <header id="nav-section">
         <button id="start-game-button" class="btn btn-secondary btn active flex-grow">Play</button>

@@ -12,9 +12,9 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function () {
   console.log('call signUpFailure')
-  $('#sign-up-section .user-notification').text('Something went wrong. Please try again.').addClass('failure')
+  $('#sign-up-section .user-notification').text('Something went wrong. Please try again.').addClass('alert-danger')
   setTimeout(() => {
-    $('#sign-up-section .user-notification').text('').removeClass('.failure')
+    $('#sign-up-section .user-notification').text('').removeClass('alert-danger')
   }, 5 * 1000)
   $('#sign-up-form').trigger('reset')
 }
