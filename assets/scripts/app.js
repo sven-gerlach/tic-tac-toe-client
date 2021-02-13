@@ -34,4 +34,5 @@ $(() => {
   // On game-result page
   $('#play-again').on('click', events.onStartGame)
   $('#stop-playing').on('click', display.gamePlayPage)
+
 })

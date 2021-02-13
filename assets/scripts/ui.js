@@ -54,17 +54,17 @@ const signOutFailure = function () {
 
 const changePasswordSuccess = function () {
   console.log('call changePasswordSuccess')
-  $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('success')
+  $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('alert-success')
   setTimeout(() => {
-    $('#account-section .user-notification').text('').removeClass('success')
+    $('#account-section .user-notification').text('').removeClass('alert-success')
   }, 5 * 1000)
 }
 
 const changePasswordFailure = function () {
   console.log('call changePasswordFailure')
-  $('#account-section .user-notification').text('Oh no, something went wrong! Your password has not been changed.').addClass('failure')
+  $('#account-section .user-notification').text('Oh no, something went wrong! Your password has not been changed.').addClass('alert-danger')
   setTimeout(() => {
-    $('#account-section .user-notification').text('').removeClass('failure')
+    $('#account-section .user-notification').text('').removeClass('alert-danger')
   }, 5 * 1000)
 }
 

@@ -1,9 +1,58 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+// dynamic background colour formatting
+.gradDynamic {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.gradDynamic:after, .gradDynamic:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  content: "";
+  z-index: -1;
+}
+
+.gradDynamic:after {
+  background: radial-gradient(circle, red, transparent);
+  animation: colorSpin 30s linear infinite;
+}
+
+.gradDynamic:before {
+  background-color: yellow;
+}
+
+@keyframes colorSpin {
+  25% {
+    transform: translateY(-75%);
+  }
+  50% {
+    transform: translate(-75%, -75%);
+  }
+  75% {
+    transform: translate(-75%, 0);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+  /*75 is obtained as 100[1- (100/(height or width written in .gradDynamic:after)). i.e. 75 = 100[1-100/400] */
+}
+
+
+// todo: remove this once fully replaced by Bootstrap alerts
 .failure {
   color: red
 }
 
+// todo: remove this once fully replaced by Bootstrap alerts
 .success {
   color: green;
 }
@@ -22,3 +71,6 @@
   }
 }
 
+.table .center-align {
+  text-align: center;
+}

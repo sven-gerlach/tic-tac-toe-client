@@ -11,9 +11,9 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+    <body class="gradDynamic">
       <section id="welcome-section">
-        <h1>Welcome to Tic Tac Toe</h1>
+        <h1>Tic Tac Toe</h1>
         <button id="sign-in-button">Sign In</button>
         <button id="sign-up-button">Create Account</button>
       </section>
@@ -39,11 +39,20 @@
         <div class="user-notification"></div>
       </section>
       <nav id="nav-section">
-        <button id="game-play-button" class="btn btn-primary">Game Play</button>
-        <button id="start-game-button" class="btn btn-primary">Let's Play</button>
-        <button id="open-games-button" class="btn btn-primary">Open Games <span class="badge badge-light"></span></button>
-        <button id="account-button" class="btn btn-primary">Account</button>
-        <button id="sign-out-button" class="btn btn-primary">Sign Out</button>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <button id="start-game-button" type="button" class="btn btn-secondary">Play</button>
+          <button id="game-play-button" type="button" class="btn btn-secondary">Intro</button>
+          <button id="open-games-button" type="button" class="btn btn-secondary">Open Games <span class="badge badge-light"></span></button>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a id="account-button" class="dropdown-item" href="#">Security</a>
+              <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
+            </div>
+          </div>
+        </div>
       </nav>
       <section id="game-play-section">
         <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
@@ -61,47 +70,47 @@
           <div data-game-board-index="7"></div>
           <div data-game-board-index="8"></div>
         </div>
-        <button id="exit-game">Exit Game</button>
+        <button id="exit-game" class="btn btn-secondary">Exit Game</button>
       </section>
       <section id="open-games-section">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th colspan="3" scope="colgroup">Summary Game Statistics</th>
-            </tr>
-            <tr>
               <th scope="col"></th>
-              <th scope="col">Games</th>
-              <th scope="col">%</th>
+              <th class="center-align" scope="col">Games</th>
+              <th class="center-align" scope="col">%</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Started</th>
-              <td id="started-absolute"></td>
-              <td id="started-percent"></td>
+              <td class="center-align" id="started-absolute"></td>
+              <td class="center-align" id="started-percent"></td>
             </tr>
             <tr>
               <th scope="row">Finished</th>
-              <td id="finished-absolute"></td>
-              <td id="finished-percent"></td>
+              <td class="center-align" id="finished-absolute"></td>
+              <td class="center-align" id="finished-percent"></td>
             </tr>
             <tr>
               <th scope="row">Open</th>
-              <td id="open-absolute"></td>
-              <td id="open-percent"></td>
+              <td class="center-align" id="open-absolute"></td>
+              <td class="center-align" id="open-percent"></td>
             </tr>
           </tbody>
         </table>
       </section>
       <section id="account-section">
-        <p>To change your password please enter your old one and a secure new one.</p>
         <form id="change-password-form">
-          <input name="passwords[old]" type="password" placeholder="old password" required>
-          <input name="passwords[new]" type="password" placeholder="new password" required>
-          <button type="submit">Submit</button>
+          <div class="form-group">
+            <input name="passwords[old]" type="password" class="form-control" aria-describedby="old password" placeholder="old password" required>
+          </div>
+          <div class="form-group">
+            <input name="passwords[new]" type="password" class="form-control" placeholder="new password" required>
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
         </form>
-        <div class="user-notification"></div>
+        <div class="user-notification alert"></div>
       </section>
       <section id="game-result-section">
         <div class="user-notification"></div>
