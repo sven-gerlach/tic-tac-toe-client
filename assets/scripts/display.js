@@ -37,6 +37,8 @@ const signUpPage = function () {
 }
 
 const gamePlayPage = function () {
+  // highlights the button as active if page is viewed
+  makeButtonActive('Intro')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
@@ -61,6 +63,7 @@ const gamePage = function () {
 }
 
 const openGamesPage = function () {
+  makeButtonActive('Games')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
@@ -73,6 +76,7 @@ const openGamesPage = function () {
 }
 
 const accountPage = function () {
+  makeButtonActive('Account')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
@@ -94,6 +98,16 @@ const gameResultPage = function () {
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').show()
+}
+
+function makeButtonActive (buttonText) {
+  $('#nav-section button').each(function () {
+    if ($(this).text().indexOf(buttonText) !== -1) {
+      $(this).addClass('active')
+    } else {
+      $(this).removeClass('active')
+    }
+  })
 }
 
 Object.assign(module.exports, {

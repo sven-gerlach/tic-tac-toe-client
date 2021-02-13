@@ -12,19 +12,19 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="gradDynamic">
-      <header id="nav-section" class="container-fluid">
-        <button id="start-game-button" class="btn btn-secondary btn active flex-grow">Play</button>
-        <button id="game-play-button" class="btn btn-secondary btn active">Intro</button>
-        <button id="open-games-button" class="btn btn-secondary btn active">Games <span class="badge badge-light"></span></button>
-        <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <a id="account-button" class="dropdown-item" href="#">Security</a>
-          <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
-        </div>
-      </header>
       <main class="container">
+        <div id="nav-section">
+          <button id="game-play-button" class="btn btn-secondary">Intro</button>
+          <button id="start-game-button" class="btn btn-secondary">Play</button>
+          <button id="open-games-button" class="btn btn-secondary">Games <span class="badge badge-light"></span></button>
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a id="account-button" class="dropdown-item" href="#">Security</a>
+            <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
+          </div>
+        </div>
         <section id="welcome-section">
           <div class="row">
             <div class="col align-self-center text-center">
@@ -96,7 +96,38 @@
           </div>
         </section>
         <section id="game-play-section">
-          <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Playing the Game
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  Two players are each allocated a game symbol of X and O respectively. Both players take turns in placing their symbol into a single cell of a 3 x 3 matrix. The player who positions three of his symbols in a horizontal, vertical, or diagonal straight line wins the game. If all the cells of the matrix have been populated, and neither player has achieved to position three of their symbols in a straight line, the game results in a draw.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Navigating the Menu
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  To play the game, please press the <p>"Play"</p> button in the main menu.
+                  The <b>"Games"</b> button shows how many of your games are unfinished.
+                  On the <b>Account</b> dropdown menu you can find the <b>"Security"</b> button, which allows you to change your password, as well as the <b>Sign Out</b> button.
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <section id="game-section">
           <div class="user-notification alert alert-info"></div>
