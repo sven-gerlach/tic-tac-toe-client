@@ -88,18 +88,6 @@ const accountPage = function () {
   $('#game-result-section').hide()
 }
 
-const gameResultPage = function () {
-  $('#welcome-section').hide()
-  $('#sign-in-section').hide()
-  $('#sign-up-section').hide()
-  $('#nav-section').hide()
-  $('#game-play-section').hide()
-  $('#game-section').hide()
-  $('#open-games-section').hide()
-  $('#account-section').hide()
-  $('#game-result-section').show()
-}
-
 function makeButtonActive (buttonText) {
   $('#nav-section button').each(function () {
     if ($(this).text().indexOf(buttonText) !== -1) {
@@ -117,6 +105,5 @@ Object.assign(module.exports, {
   gamePlayPage,
   gamePage,
   openGamesPage,
-  accountPage,
-  gameResultPage
+  accountPage
 })

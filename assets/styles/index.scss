@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+// font style for game board
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
 // dynamic background colour formatting
 .gradDynamic {
   position: fixed;
@@ -90,6 +94,37 @@ img {
   }
 }
 
+#game-section {
+  > nav {
+    margin: 10px 0
+  }
+  > div {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 10px;
+  }
+}
+
+// todo: how can the 9 squares be squares that fill out the largest containing square subject to screen width / height
+#game-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  height: 100%;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(201, 201, 201, 0.6);
+    min-width: 100px;
+    height: 20vh;
+    font-size: 0;
+    font-family: 'Permanent Marker', cursive;
+  }
+}
+
 // todo: remove this once fully replaced by Bootstrap alerts
 .failure {
   color: red
@@ -98,20 +133,6 @@ img {
 // todo: remove this once fully replaced by Bootstrap alerts
 .success {
   color: green;
-}
-
-#game-board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  gap: 10px;
-  > div {
-    display: flex;
-    background-color: lightgrey;
-    width: 100px;
-    height: 100px;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 .table .center-align {

@@ -89,17 +89,19 @@ const displayInvalidMove = function (nextPlayer) {
 }
 
 const drawSymbol = function (symbol, index) {
-  $(`#game-board div[data-game-board-index=${index}]`).text(symbol)
+  $(`#game-board div[data-game-board-index=${index}]`).text(symbol).animate({
+    'font-size': 40
+  }, 800)
 }
 
 const declareWinner = function (player) {
-  display.gameResultPage()
-  $('#game-result-section .user-notification').text(`Player ${player} has won the game`)
+  $('#game-result-modal .user-notification').text(`...player ${player} has won the game`)
+  $('#game-result-modal').modal()
 }
 
 const declareDraw = function () {
-  display.gameResultPage()
-  $('#game-result-section .user-notification').text('It\'s a draw!')
+  $('#game-result-modal .user-notification').text('...it\'s a draw!')
+  $('#game-result-modal').modal()
 }
 
 const resetBoard = function () {

@@ -130,19 +130,23 @@
           </div>
         </section>
         <section id="game-section">
-          <div class="user-notification alert alert-info"></div>
-          <div id="game-board">
-            <div data-game-board-index="0"></div>
-            <div data-game-board-index="1"></div>
-            <div data-game-board-index="2"></div>
-            <div data-game-board-index="3"></div>
-            <div data-game-board-index="4"></div>
-            <div data-game-board-index="5"></div>
-            <div data-game-board-index="6"></div>
-            <div data-game-board-index="7"></div>
-            <div data-game-board-index="8"></div>
+          <nav>
+            <button id="exit-game" class="btn btn-secondary">Exit Game</button>
+          </nav>
+          <div class="container">
+            <div class="user-notification alert alert-info"></div>
+            <div id="game-board">
+              <div data-game-board-index="0"></div>
+              <div data-game-board-index="1"></div>
+              <div data-game-board-index="2"></div>
+              <div data-game-board-index="3"></div>
+              <div data-game-board-index="4"></div>
+              <div data-game-board-index="5"></div>
+              <div data-game-board-index="6"></div>
+              <div data-game-board-index="7"></div>
+              <div data-game-board-index="8"></div>
+            </div>
           </div>
-          <button id="exit-game" class="btn btn-secondary">Exit Game</button>
         </section>
         <section id="open-games-section">
           <table class="table table-hover">
@@ -184,12 +188,21 @@
           </form>
           <div class="user-notification alert"></div>
         </section>
-        <section id="game-result-section">
-          <div class="user-notification"></div>
-          <p>Would you like to play again?</p>
-          <button id="play-again">Yes</button>
-          <button id="stop-playing">No</button>
-        </section>
+        <!-- game result modal -->
+        <div class="modal fade" id="game-result-modal" tabindex="-1" role="dialog" aria-labelledby="Game Result Announcement" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">And the Result is...</h5>
+              </div>
+              <div class="modal-body user-notification"></div>
+              <div class="modal-footer">
+                <button id="play-again" type="button" class="btn btn-primary" data-dismiss="modal">Let's Play Again!</button>
+                <button id="stop-playing" type="button" class="btn btn-secondary" data-dismiss="modal">I'll Stop Here</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </main>
     </body>
