@@ -12,50 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="gradDynamic">
-      <section id="welcome-section">
-        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
-        <nav>
-          <button id="sign-in-button" class="btn btn-secondary btn-lg">Sign In</button>
-          <button id="sign-up-button" class="btn btn-secondary btn-lg">Create Account</button>
-        </nav>
-      </section>
-      <section id="sign-in-section">
-        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
-
-        <form id="sign-in-form">
-          <div class="form-group">
-            <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
-          </div>
-          <div class="form-group">
-            <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-secondary">Sign In</button>
-            <button class="btn btn-secondary return-to-welcome-page">Return</button>
-          </div>
-        </form>
-        <div class="user-notification alert"></div>
-      </section>
-      <section id="sign-up-section">
-        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
-        <form id="sign-up-form">
-          <div class="form-group">
-            <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
-          </div>
-          <div class="form-group">
-            <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
-          </div>
-          <div class="form-group">
-            <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password" required>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-secondary">Sign Up</button>
-            <button class="btn btn-secondary return-to-welcome-page">Return</button>
-          </div>
-        </form>
-        <div class="user-notification alert"></div>
-      </section>
-      <header id="nav-section">
+      <header id="nav-section" class="container-fluid">
         <button id="start-game-button" class="btn btn-secondary btn active flex-grow">Play</button>
         <button id="game-play-button" class="btn btn-secondary btn active">Intro</button>
         <button id="open-games-button" class="btn btn-secondary btn active">Games <span class="badge badge-light"></span></button>
@@ -67,69 +24,142 @@
           <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
         </div>
       </header>
-      <section id="game-play-section">
-        <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
-      </section>
-      <section id="game-section">
-        <div class="user-notification alert alert-info"></div>
-        <div id="game-board">
-          <div data-game-board-index="0"></div>
-          <div data-game-board-index="1"></div>
-          <div data-game-board-index="2"></div>
-          <div data-game-board-index="3"></div>
-          <div data-game-board-index="4"></div>
-          <div data-game-board-index="5"></div>
-          <div data-game-board-index="6"></div>
-          <div data-game-board-index="7"></div>
-          <div data-game-board-index="8"></div>
-        </div>
-        <button id="exit-game" class="btn btn-secondary">Exit Game</button>
-      </section>
-      <section id="open-games-section">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th class="center-align" scope="col">Games</th>
-              <th class="center-align" scope="col">%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Started</th>
-              <td class="center-align" id="started-absolute"></td>
-              <td class="center-align" id="started-percent"></td>
-            </tr>
-            <tr>
-              <th scope="row">Finished</th>
-              <td class="center-align" id="finished-absolute"></td>
-              <td class="center-align" id="finished-percent"></td>
-            </tr>
-            <tr>
-              <th scope="row">Open</th>
-              <td class="center-align" id="open-absolute"></td>
-              <td class="center-align" id="open-percent"></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section id="account-section">
-        <form id="change-password-form">
-          <div class="form-group">
-            <input name="passwords[old]" type="password" class="form-control" aria-describedby="old password" placeholder="old password" required>
+      <main class="container">
+        <section id="welcome-section">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid">
+            </div>
           </div>
-          <div class="form-group">
-            <input name="passwords[new]" type="password" class="form-control" placeholder="new password" required>
+          <nav class="row justify-content-around">
+            <button id="sign-in-button" class="btn btn-secondary btn-lg">Sign In</button>
+            <button id="sign-up-button" class="btn btn-secondary btn-lg">Create Account</button>
+          </nav>
+        </section>
+        <section id="sign-in-section">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid">
+            </div>
           </div>
-          <button type="submit" class="btn btn-secondary">Submit</button>
-        </form>
-        <div class="user-notification alert"></div>
-      </section>
-      <section id="game-result-section">
-        <div class="user-notification"></div>
-        <p>Would you like to play again?</p>
-        <button id="play-again">Yes</button>
-        <button id="stop-playing">No</button>
-      </section>
+          <div class="row">
+            <div class="col justify-content-around">
+              <form id="sign-in-form">
+                <div class="form-group">
+                  <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="e-Mail" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="row justify-content-between">
+                  <button type="submit" class="btn btn-secondary">Sign In</button>
+                  <button class="btn btn-secondary return-to-welcome-page">Return</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="user-notification alert"></div>
+            </div>
+          </div>
+        </section>
+        <section id="sign-up-section">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col justify-content-around">
+              <form id="sign-up-form">
+                <div class="form-group">
+                  <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="e-Mail" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password" required>
+                </div>
+                <div class="row justify-content-between">
+                  <button type="submit" class="btn btn-secondary">Sign Up</button>
+                  <button class="btn btn-secondary return-to-welcome-page">Return</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="user-notification alert"></div>
+            </div>
+          </div>
+        </section>
+        <section id="game-play-section">
+          <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
+        </section>
+        <section id="game-section">
+          <div class="user-notification alert alert-info"></div>
+          <div id="game-board">
+            <div data-game-board-index="0"></div>
+            <div data-game-board-index="1"></div>
+            <div data-game-board-index="2"></div>
+            <div data-game-board-index="3"></div>
+            <div data-game-board-index="4"></div>
+            <div data-game-board-index="5"></div>
+            <div data-game-board-index="6"></div>
+            <div data-game-board-index="7"></div>
+            <div data-game-board-index="8"></div>
+          </div>
+          <button id="exit-game" class="btn btn-secondary">Exit Game</button>
+        </section>
+        <section id="open-games-section">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th class="center-align" scope="col">Games</th>
+                <th class="center-align" scope="col">%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Started</th>
+                <td class="center-align" id="started-absolute"></td>
+                <td class="center-align" id="started-percent"></td>
+              </tr>
+              <tr>
+                <th scope="row">Finished</th>
+                <td class="center-align" id="finished-absolute"></td>
+                <td class="center-align" id="finished-percent"></td>
+              </tr>
+              <tr>
+                <th scope="row">Open</th>
+                <td class="center-align" id="open-absolute"></td>
+                <td class="center-align" id="open-percent"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="account-section">
+          <form id="change-password-form">
+            <div class="form-group">
+              <input name="passwords[old]" type="password" class="form-control" aria-describedby="old password" placeholder="old password" required>
+            </div>
+            <div class="form-group">
+              <input name="passwords[new]" type="password" class="form-control" placeholder="new password" required>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </form>
+          <div class="user-notification alert"></div>
+        </section>
+        <section id="game-result-section">
+          <div class="user-notification"></div>
+          <p>Would you like to play again?</p>
+          <button id="play-again">Yes</button>
+          <button id="stop-playing">No</button>
+        </section>
+
+      </main>
     </body>
 </html>

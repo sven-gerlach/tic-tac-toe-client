@@ -28,6 +28,12 @@ const onSignUp = function (event) {
     .then(data => {
       store.user = data.user
       ui.signUpSuccess()
+      api.signIn(formData)
+        .then(data => {
+          store.user = data.user
+          ui.signInSuccess()
+        })
+        .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
 }
