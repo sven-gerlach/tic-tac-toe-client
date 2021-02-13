@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,11 @@
     </head>
     <body class="gradDynamic">
       <section id="welcome-section">
-        <h1>Tic Tac Toe</h1>
-        <button id="sign-in-button">Sign In</button>
-        <button id="sign-up-button">Create Account</button>
+        <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
+        <nav>
+          <button id="sign-in-button" class="btn btn-secondary btn-lg">Sign In</button>
+          <button id="sign-up-button" class="btn btn-secondary btn-lg">Create Account</button>
+        </nav>
       </section>
       <section id="sign-in-section">
         <h1>Sign In</h1>
@@ -38,22 +40,18 @@
         </form>
         <div class="user-notification"></div>
       </section>
-      <nav id="nav-section">
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <button id="start-game-button" type="button" class="btn btn-secondary">Play</button>
-          <button id="game-play-button" type="button" class="btn btn-secondary">Intro</button>
-          <button id="open-games-button" type="button" class="btn btn-secondary">Open Games <span class="badge badge-light"></span></button>
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-              <a id="account-button" class="dropdown-item" href="#">Security</a>
-              <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
-            </div>
-          </div>
+      <header id="nav-section">
+        <button id="start-game-button" class="btn btn-secondary btn active flex-grow">Play</button>
+        <button id="game-play-button" class="btn btn-secondary btn active">Intro</button>
+        <button id="open-games-button" class="btn btn-secondary btn active">Games <span class="badge badge-light"></span></button>
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a id="account-button" class="dropdown-item" href="#">Security</a>
+          <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
         </div>
-      </nav>
+      </header>
       <section id="game-play-section">
         <p>[description of tic-tac-toe game, how to play it, what game options there are, etc]</p>
       </section>
