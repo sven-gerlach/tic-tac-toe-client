@@ -21,13 +21,20 @@
       </section>
       <section id="sign-in-section">
         <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
+
         <form id="sign-in-form">
-          <input name="credentials[email]" type="email" placeholder="email" required>
-          <input name="credentials[password]" type="password" placeholder="password" required>
-          <button type="submit">Submit</button>
-          <button class="return-to-welcome-page">Return</button>
+          <div class="form-group">
+            <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-secondary">Sign In</button>
+            <button class="btn btn-secondary return-to-welcome-page">Return</button>
+          </div>
         </form>
-        <div class="user-notification"></div>
+        <div class="user-notification alert"></div>
       </section>
       <section id="sign-up-section">
         <div><img src="assets/images/tic-tac-toe@0.5x.png" class="img-fluid"></div>
@@ -42,7 +49,7 @@
             <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password" required>
           </div>
           <div>
-            <button type="submit" class="btn btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-secondary">Sign Up</button>
             <button class="btn btn-secondary return-to-welcome-page">Return</button>
           </div>
         </form>

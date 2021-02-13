@@ -36,9 +36,9 @@ const signInSuccess = function () {
 
 const signInFailure = function () {
   console.log('call signInFailure')
-  $('#sign-in-section .user-notification').text('Something went wrong. Please try again.').addClass('failure')
+  $('#sign-in-section .user-notification').text('Something went wrong. Please try again.').addClass('alert-danger')
   setTimeout(() => {
-    $('#sign-in-section .user-notification').text('').removeClass('.failure')
+    $('#sign-in-section .user-notification').text('').removeClass('alert-danger')
   }, 5 * 1000)
   $('#sign-in-form').trigger('reset')
 }
