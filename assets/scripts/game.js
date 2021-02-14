@@ -9,6 +9,7 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   this.createdAt = createdAt
   this.updatedAt = updatedAt
   this.player = 'X'
+
   // returns true if the attempted move is valid and false otherwise
   this.isValidMove = function (clickedCell) {
     const clickedCellIndex = $(clickedCell).data('game-board-index')
@@ -58,6 +59,12 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
         over: this.over
       }
     }
+  }
+  this.firstMover = function () {
+    (this._countPastMoves('X') - this._countPastMoves('O') > 0) ? this.player = 'O' : this.player = 'X'
+  }
+  this._countPastMoves = function (symbol) {
+    return this.cells.filter((cell) => cell === symbol).length
   }
 }
 

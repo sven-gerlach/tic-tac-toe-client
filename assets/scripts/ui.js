@@ -94,11 +94,13 @@ const drawSymbol = function (symbol, index) {
   }, 800)
 }
 
+// todo: add button to pick an old unfinished game
 const declareWinner = function (player) {
   $('#game-result-modal .user-notification').text(`...player ${player} has won the game`)
   $('#game-result-modal').modal()
 }
 
+// todo: add button to pick an old unfinished game
 const declareDraw = function () {
   $('#game-result-modal .user-notification').text('...it\'s a draw!')
   $('#game-result-modal').modal()
@@ -118,6 +120,14 @@ const displayGameStats = function (gameStats) {
   $('#open-games-button span').text(gameStats.openGames)
 }
 
+const populateGameBoard = function (cells) {
+  cells.forEach((cell, index) => {
+    $(`#game-board div[data-game-board-index=${index}]`).text(cell).animate({
+      'font-size': 40
+    }, 800)
+  })
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
@@ -135,5 +145,6 @@ Object.assign(module.exports, {
   declareWinner,
   resetBoard,
   declareDraw,
-  displayGameStats
+  displayGameStats,
+  populateGameBoard
 })

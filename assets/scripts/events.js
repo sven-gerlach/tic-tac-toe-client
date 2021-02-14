@@ -7,6 +7,7 @@ const display = require('./display')
 const gameModule = require('./game')
 const gameLoop = require('./game-loop').gameLoop
 const GameStats = require('./game-stats').GameStats
+const oldGames = require('./old-games')
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -71,8 +72,24 @@ const onStartGame = function () {
 
 // select an old game and finish it
 const onStartOldGame = function () {
+  console.log('call onStartOldGame')
   // todo: build out this functionality
   display.oldGamePage()
+
+  // construct html elements that then replace the old carousel items and indicators
+  const unfinishedGames = oldGames.getUnfinishedGames()
+  const htmlCarouselItems = oldGames.makeHtmlCarouselItems(unfinishedGames)
+  const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
+  $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
+  $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
+    const gameId = $(event.target).data('game-id')
+    const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
+    const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
+    display.gamePage()
+    gameLoop(game)
+  })
+  // attach event listener to .old-game-board and if clicked, search for that game in games and instantiate new gameModule.Game(game)
+  // start gameLoop(game)
 }
 
 // todo: instead of storing it the data can also be passed on through the promise object

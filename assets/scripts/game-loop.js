@@ -4,6 +4,9 @@ const api = require('./api')
 
 const gameLoop = function (game) {
   console.log('call gameLoop')
+  ui.populateGameBoard(game.cells)
+  game.firstMover()
+  console.log(game.player)
   ui.displayNextPlayer(game.player)
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
