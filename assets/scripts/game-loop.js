@@ -2,11 +2,14 @@
 const ui = require('./ui')
 const api = require('./api')
 
+// todo: continuing an unfinished game and completing it does not result in the game being updated to finished (but the moves are stored correctly)
 const gameLoop = function (game) {
   console.log('call gameLoop')
-  ui.populateGameBoard(game.cells)
-  game.firstMover()
-  console.log(game.player)
+  // if game.cells contains any X or O, prepare the game board for continuing an old game
+  if (game.cells.filter(symbol => symbol === 'X' || symbol === 'O').length > 0) {
+    game.setFirstMover()
+    ui.populateGameBoard(game.cells)
+  }
   ui.displayNextPlayer(game.player)
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
@@ -16,6 +19,7 @@ const gameLoop = function (game) {
       if (game.isWon()) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
+        console.log(apiDataFeed)
         api.updateGame(game, apiDataFeed)
           .then(console.log)
           .catch(console.error)
@@ -23,6 +27,7 @@ const gameLoop = function (game) {
       } else if (game.isDraw()) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
+        console.log(apiDataFeed)
         api.updateGame(game, apiDataFeed)
           .then(console.log)
           .catch(console.error)

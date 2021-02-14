@@ -73,7 +73,12 @@ const onStartGame = function () {
 // select an old game and finish it
 const onStartOldGame = function () {
   console.log('call onStartOldGame')
-  // todo: build out this functionality
+  // update old games for most recent developments
+  api.getGames()
+    .then(response => {
+      store.games = response.games
+    })
+    .catch(console.error)
   display.oldGamePage()
 
   // construct html elements that then replace the old carousel items and indicators

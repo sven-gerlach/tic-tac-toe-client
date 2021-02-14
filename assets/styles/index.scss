@@ -134,8 +134,7 @@ img {
 }
 
 // todo: how can the 9 squares be squares that fill out the largest containing square subject to screen width / height
-#game-board,
-.old-game-board {
+#game-board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;

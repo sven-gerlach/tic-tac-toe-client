@@ -122,9 +122,9 @@ const displayGameStats = function (gameStats) {
 
 const populateGameBoard = function (cells) {
   cells.forEach((cell, index) => {
-    $(`#game-board div[data-game-board-index=${index}]`).text(cell).animate({
-      'font-size': 40
-    }, 800)
+    if (cell === 'X' || cell === 'O') {
+      drawSymbol(cell, index)
+    }
   })
 }
 

@@ -60,7 +60,7 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
       }
     }
   }
-  this.firstMover = function () {
+  this.setFirstMover = function () {
     (this._countPastMoves('X') - this._countPastMoves('O') > 0) ? this.player = 'O' : this.player = 'X'
   }
   this._countPastMoves = function (symbol) {
