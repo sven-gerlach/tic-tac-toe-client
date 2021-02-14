@@ -21,6 +21,7 @@ $(() => {
   // Main menu page with nav bar
   $('#game-play-button').on('click', display.gamePlayPage)
   $('#start-game-button').on('click', events.onStartGame)
+  $('#start-old-game-button').on('click', events.onStartOldGame)
   $('#open-games-button').on('click', events.onOpenGames)
   $('#account-button').on('click', display.accountPage)
 

@@ -134,7 +134,8 @@ img {
 }
 
 // todo: how can the 9 squares be squares that fill out the largest containing square subject to screen width / height
-#game-board {
+#game-board,
+.old-game-board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -147,6 +148,24 @@ img {
     min-width: 100px;
     height: 20vh;
     font-size: 0;
+    font-family: 'Permanent Marker', cursive;
+  }
+}
+
+// styling for the carousel of old unfinished games
+.old-game-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  height: 100%;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(201, 201, 201, 0.6);
+    min-width: 100px;
+    height: 20vh;
+    font-size: 40px;
     font-family: 'Permanent Marker', cursive;
   }
 }

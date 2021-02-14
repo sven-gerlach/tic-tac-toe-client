@@ -7,6 +7,7 @@ const welcomePageDisplay = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -19,6 +20,7 @@ const signInPage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -31,6 +33,7 @@ const signUpPage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -45,6 +48,7 @@ const gamePlayPage = function () {
   $('#nav-section').show()
   $('#game-play-section').show()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -57,6 +61,20 @@ const gamePage = function () {
   $('#nav-section').hide()
   $('#game-play-section').hide()
   $('#game-section').show()
+  $('#old-game-section').hide()
+  $('#open-games-section').hide()
+  $('#account-section').hide()
+  $('#game-result-section').hide()
+}
+
+const oldGamePage = function () {
+  $('#welcome-section').hide()
+  $('#sign-in-section').hide()
+  $('#sign-up-section').hide()
+  $('#nav-section').hide()
+  $('#game-play-section').hide()
+  $('#game-section').hide()
+  $('#old-game-section').show()
   $('#open-games-section').hide()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -70,6 +88,7 @@ const openGamesPage = function () {
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').show()
   $('#account-section').hide()
   $('#game-result-section').hide()
@@ -83,6 +102,7 @@ const accountPage = function () {
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#game-section').hide()
+  $('#old-game-section').hide()
   $('#open-games-section').hide()
   $('#account-section').show()
   $('#game-result-section').hide()
@@ -104,6 +124,7 @@ Object.assign(module.exports, {
   signUpPage,
   gamePlayPage,
   gamePage,
+  oldGamePage,
   openGamesPage,
   accountPage
 })

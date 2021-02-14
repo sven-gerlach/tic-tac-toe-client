@@ -69,6 +69,12 @@ const onStartGame = function () {
     .catch(ui.startGameFailure)
 }
 
+// select an old game and finish it
+const onStartOldGame = function () {
+  // todo: build out this functionality
+  display.oldGamePage()
+}
+
 // todo: instead of storing it the data can also be passed on through the promise object
 // displays the game stats page, invokes API call to collect all played games
 const onOpenGames = function () {
@@ -78,7 +84,6 @@ const onOpenGames = function () {
       store.games = response.games
       const gameStats = new GameStats(store.games)
       ui.displayGameStats(gameStats)
-
     })
     .catch(console.error)
 }
@@ -102,5 +107,6 @@ Object.assign(module.exports, {
   onChangePassword,
   onStartGame,
   onExitGame,
-  onOpenGames
+  onOpenGames,
+  onStartOldGame
 })
