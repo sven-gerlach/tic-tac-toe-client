@@ -3,6 +3,9 @@
 // font style for game board
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
+body {
+  background: #EDEBED;
+}
 
 // dynamic background colour formatting
 .gradDynamic {
@@ -92,6 +95,9 @@ img {
   > div {
     background-color: transparent;
   }
+  .card-body {
+    text-align: justify;
+  }
 }
 
 #game-section {
@@ -99,6 +105,26 @@ img {
     margin: 10px 0
   }
   > div {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 10px;
+  }
+}
+
+#open-games-section {
+  > div {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 10px;
+  }
+}
+
+#account-section {
+  > .container {
     background-color: rgba(255, 255, 255, 0.5);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
