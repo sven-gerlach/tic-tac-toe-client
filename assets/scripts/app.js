@@ -4,6 +4,8 @@ const events = require('./events')
 
 $(() => {
   // todo: on page load, other sections are displayed for 300ms. Maybe use CSS to set display of other sections to none?
+  // todo: a nice holding page would be good to have that drops off the screen once the main content it loaded.
+
   // Welcome page
   display.welcomePageDisplay()
   $('#sign-in-button').on('click', display.signInPage)
