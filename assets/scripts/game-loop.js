@@ -2,7 +2,6 @@
 const ui = require('./ui')
 const api = require('./api')
 
-// todo: continue playing an unfinished game calls ui.displayInvalidMove every time but sets the symbol successfully regardless
 const gameLoop = function (game) {
   console.log('call gameLoop')
   // if game.cells contains any X or O, prepare the game board for continuing an old game

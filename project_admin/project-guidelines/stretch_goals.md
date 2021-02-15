@@ -3,12 +3,12 @@
 Once (and only once) you've satisfied the core requirements, here are some
 additional goals that you can shoot for:
 
--[ ] **View Previous Games**
+-[x] **View Previous Games**
 - allow user to view their previous game boards.
 - utilize the `GET /games` end point
 
 
--[ ] **Finish Incomplete Games**
+-[x] **Finish Incomplete Games**
 - allow user to view and complete their unfinished games.
 - utilize the `GET /games` end point
 
@@ -23,20 +23,20 @@ additional goals that you can shoot for:
 - the AI Bot can have difficulty settings like easy and hard mode.
 
 
--[ ] **Game Statistics**
+-[x] **Game Statistics**
 - keep track of multiple game rounds within one session with a win/loss/tie counter.
 
 
--[ ] **Automatic Sign In**
+-[x] **Automatic Sign In**
 - trigger user to sign in automatically after signing up.
 - leverage your promise chain and API calls
 
 
--[ ] **Responsive Design**
+-[x] **Responsive Design**
 - allow user functionality on mobile experience.
 - use custom media queries or Bootstrap
 
 
--[ ] **Advanced User Experienced**
+-[x] **Advanced User Experienced**
 - use hover effects and animations to create a seamless experience for users
 - add themed styling and branding design

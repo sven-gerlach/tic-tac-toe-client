@@ -65,11 +65,11 @@
 1.  [x] [Deploy to Github Pages](https://git.generalassemb.ly/ga-wdi-boston/gh-pages-deployment-guide)
 
 ### Formatting / Styling
-1. [ ] Use jQuery, Bootstrap, and SCSS
+1. [x] Use jQuery, Bootstrap, and SCSS
 
 ### Debug
--[ ] test edge cases
--[ ] test corner cases
+-[x] test edge cases
+-[x] test corner cases
 
 ### Documentation Requirements
 -[ ] Draft [documentation requirements](project-guidelines/requirements.md)

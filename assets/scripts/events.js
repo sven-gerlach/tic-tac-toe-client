@@ -98,7 +98,6 @@ const onStartOldGame = function () {
     .catch(console.error)
 }
 
-// todo: instead of storing it the data can also be passed on through the promise object
 // displays the game stats page, invokes API call to collect all played games
 const onOpenGames = function () {
   display.openGamesPage()
@@ -113,7 +112,6 @@ const onOpenGames = function () {
 
 const onExitGame = function () {
   display.gamePlayPage()
-  // todo: it doesn't feel very dry or inexpensive having to instantiate a new object every time the open games counter needs updating
   api.getGames()
     .then(response => {
       store.games = response.games

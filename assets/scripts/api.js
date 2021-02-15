@@ -2,7 +2,6 @@
 const config = require('./config')
 const store = require('./store').store
 
-// todo: add auto sign-in feature
 const signUp = function (data) {
   console.log('call signUp')
   return $.ajax({
