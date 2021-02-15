@@ -35,7 +35,7 @@ $(() => {
   $('#exit-game').on('click', events.onExitGame) // todo: add saving the game state functionality with appropriate ajax request
 
   // On game-result page
-  $('#play-again').on('click', events.onStartGame)
+  $('#play-new-game').on('click', events.onStartGame)
+  $('#choose-old-game').on('click', events.onStartOldGame)
   $('#stop-playing').on('click', display.gamePlayPage)
-
 })

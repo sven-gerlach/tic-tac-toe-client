@@ -15,20 +15,24 @@
       <main class="container">
         <div id="nav-section">
           <button id="game-play-button" class="btn btn-primary">Intro</button>
-          <button id="btnGroupDropGame" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Play
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDropGame">
-            <a id="start-game-button" class="dropdown-item" href="#">New Game</a>
-            <a id="start-old-game-button" class="dropdown-item" href="#">Old Game</a>
+          <div class="btn-group">
+            <button id="btnGroupDropGame" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Play
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDropGame">
+              <a id="start-game-button" class="dropdown-item" href="#">Start New Game</a>
+              <a id="start-old-game-button" class="dropdown-item" href="#">Choose Old Game</a>
+            </div>
           </div>
           <button id="open-games-button" class="btn btn-primary">Games <span class="badge badge-light"></span></button>
-          <button id="btnGroupDropAccount" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDropAccount">
-            <a id="account-button" class="dropdown-item" href="#">Security</a>
-            <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
+          <div class="btn-group">
+            <button id="btnGroupDropAccount" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDropAccount">
+              <a id="account-button" class="dropdown-item" href="#">Security</a>
+              <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
+            </div>
           </div>
         </div>
         <section id="welcome-section">
@@ -127,7 +131,7 @@
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                  To play the game, please press the <b>"Play"</b> button to open a dropdown menu where you can chose to either start a new game oir continue playing an old unfinished game.<br><br>The <b>"Games"</b> button shows how many of your games are unfinished.<br><br>In the <b>Account</b> dropdown menu you can find the <b>"Security"</b> button, which allows you to change your password, as well as the <b>Sign Out</b> button.
+                  To play the game, please press the <b>"Play"</b> dropdown menu where you can chose to either start a new game or finish playing one of your open games.<br><br>The <b>"Games"</b> button shows how many of your games are unfinished.<br><br>In the <b>Account</b> dropdown menu you can find the <b>"Security"</b> button, which allows you to change your password, as well as the <b>Sign Out</b> button.
                 </div>
               </div>
             </div>
@@ -154,21 +158,23 @@
         </section>
         <section id="old-game-section">
           <!-- todo: add the same formatting as on new game page -->
-          <div id="carouselOldGamesIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <!-- This is where JS will insert indicators for old games -->
-            </ol>
-            <div class="carousel-inner">
-              <!-- This is where JS will insert old games -->
+          <div class="container">
+            <div id="carouselOldGamesIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <!-- This is where JS will insert indicators for old games -->
+              </ol>
+              <div class="carousel-inner">
+                <!-- This is where JS will insert old games -->
+              </div>
+              <a class="carousel-control-prev" href="#carouselOldGamesIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselOldGamesIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-            <a class="carousel-control-prev" href="#carouselOldGamesIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselOldGamesIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
         </section>
         <section id="open-games-section">
@@ -232,7 +238,8 @@
               </div>
               <div class="modal-body user-notification"></div>
               <div class="modal-footer">
-                <button id="play-again" type="button" class="btn btn-primary" data-dismiss="modal">Let's Play Again!</button>
+                <button id="play-new-game" type="button" class="btn btn-primary" data-dismiss="modal">Play New Game</button>
+                <button id="choose-old-game" type="button" class="btn btn-primary" data-dismiss="modal">Choose Old Game</button>
                 <button id="stop-playing" type="button" class="btn btn-secondary" data-dismiss="modal">I'll Stop Here</button>
               </div>
             </div>

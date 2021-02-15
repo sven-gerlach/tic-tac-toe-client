@@ -2,7 +2,7 @@
 const ui = require('./ui')
 const api = require('./api')
 
-// todo: continuing an unfinished game and completing it does not result in the game being updated to finished (but the moves are stored correctly)
+// todo: continue playing an unfinished game calls ui.displayInvalidMove every time but sets the symbol successfully regardless
 const gameLoop = function (game) {
   console.log('call gameLoop')
   // if game.cells contains any X or O, prepare the game board for continuing an old game
@@ -16,22 +16,14 @@ const gameLoop = function (game) {
       const selectedCell = $(event.target).data('game-board-index')
       let apiDataFeed
       game.updateGameBoard(selectedCell, game.player)
-      if (game.isWon()) {
+      if (game.isWon() || game.isDraw()) {
+        // reset game before api update
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
-        console.log(apiDataFeed)
         api.updateGame(game, apiDataFeed)
           .then(console.log)
           .catch(console.error)
-        ui.declareWinner(game.player)
-      } else if (game.isDraw()) {
-        game.resetGameBoard()
-        apiDataFeed = game.getApiDataFeed(selectedCell)
-        console.log(apiDataFeed)
-        api.updateGame(game, apiDataFeed)
-          .then(console.log)
-          .catch(console.error)
-        ui.declareDraw()
+        game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)

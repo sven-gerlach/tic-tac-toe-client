@@ -55,6 +55,7 @@ const gamePlayPage = function () {
 }
 
 const gamePage = function () {
+  makeButtonActive('Play')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
@@ -68,10 +69,11 @@ const gamePage = function () {
 }
 
 const oldGamePage = function () {
+  makeButtonActive('Play')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()
   $('#sign-up-section').hide()
-  $('#nav-section').hide()
+  $('#nav-section').show()
   $('#game-play-section').hide()
   $('#game-section').hide()
   $('#old-game-section').show()
@@ -108,6 +110,7 @@ const accountPage = function () {
   $('#game-result-section').hide()
 }
 
+// Make the button with 'buttonText' active so that it stays highlighted once clicked
 function makeButtonActive (buttonText) {
   $('#nav-section button').each(function () {
     if ($(this).text().indexOf(buttonText) !== -1) {

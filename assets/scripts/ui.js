@@ -107,7 +107,14 @@ const declareDraw = function () {
 }
 
 const resetBoard = function () {
-  $('#game-board div').text('')
+  $('#game-board div').text('').css({ 'font-size': 0 })
+  api.getGames()
+    .then(response => {
+      store.games = response.games
+      const gameStats = new GameStats(store.games)
+      $('#open-games-button span').text(gameStats.openGames)
+    })
+    .catch(console.error)
 }
 
 const displayGameStats = function (gameStats) {

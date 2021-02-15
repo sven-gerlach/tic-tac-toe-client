@@ -88,6 +88,9 @@ img {
     padding: 6px 4px;
     flex: auto;
   }
+  > div {
+    flex: auto
+  }
 }
 
 #accordion {
@@ -113,7 +116,8 @@ img {
   }
 }
 
-#open-games-section {
+#open-games-section,
+#old-game-section {
   > div {
     background-color: rgba(255, 255, 255, 0.5);
     background-clip: border-box;

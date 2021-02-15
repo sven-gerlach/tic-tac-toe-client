@@ -77,24 +77,25 @@ const onStartOldGame = function () {
   api.getGames()
     .then(response => {
       store.games = response.games
+      display.oldGamePage()
+      // construct html elements that then replace the old carousel items and indicators
+      const unfinishedGames = oldGames.getUnfinishedGames()
+      const htmlCarouselItems = oldGames.makeHtmlCarouselItems(unfinishedGames)
+      const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
+      $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
+      $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
+        event.preventDefault()
+        console.log(event.target)
+        console.log(event.currentTarget)
+        console.log('Whaaat?')
+        const gameId = $(event.target).data('game-id')
+        const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
+        const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
+        display.gamePage()
+        gameLoop(game)
+      })
     })
     .catch(console.error)
-  display.oldGamePage()
-
-  // construct html elements that then replace the old carousel items and indicators
-  const unfinishedGames = oldGames.getUnfinishedGames()
-  const htmlCarouselItems = oldGames.makeHtmlCarouselItems(unfinishedGames)
-  const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
-  $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
-  $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
-    const gameId = $(event.target).data('game-id')
-    const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
-    const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
-    display.gamePage()
-    gameLoop(game)
-  })
-  // attach event listener to .old-game-board and if clicked, search for that game in games and instantiate new gameModule.Game(game)
-  // start gameLoop(game)
 }
 
 // todo: instead of storing it the data can also be passed on through the promise object

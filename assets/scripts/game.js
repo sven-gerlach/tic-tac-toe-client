@@ -13,6 +13,8 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   // returns true if the attempted move is valid and false otherwise
   this.isValidMove = function (clickedCell) {
     const clickedCellIndex = $(clickedCell).data('game-board-index')
+    console.log(clickedCellIndex)
+    console.log(this.cells[clickedCellIndex])
     return this.cells[clickedCellIndex] === ''
   }
   this.isWon = function () {
@@ -46,7 +48,9 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
   }
   this.resetGameBoard = function () {
     this.over = true
+    // remove event listeners to avoid create n event listeners if n rounds are played
     $('#game-board').off()
+    $('#carouselOldGamesIndicators .carousel-inner').off()
     ui.resetBoard()
   }
   this.getApiDataFeed = function (cellIndex) {
