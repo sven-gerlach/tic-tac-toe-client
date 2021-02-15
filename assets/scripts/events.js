@@ -58,9 +58,9 @@ const onChangePassword = function (event) {
 // make ajax request and deal with returned promise by either instantiating gameBoard or displaying an error message to user
 const onStartGame = function () {
   console.log('call onStartGame')
-  display.gamePage()
   api.startGame()
     .then(response => {
+      display.gamePage()
       store.game = response.game
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
@@ -84,7 +84,6 @@ const onStartOldGame = function () {
       const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
       $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
       $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
-        event.preventDefault()
         console.log(event.target)
         console.log(event.currentTarget)
         console.log('Whaaat?')
@@ -100,9 +99,9 @@ const onStartOldGame = function () {
 
 // displays the game stats page, invokes API call to collect all played games
 const onOpenGames = function () {
-  display.openGamesPage()
   api.getGames()
     .then(response => {
+      display.openGamesPage()
       store.games = response.games
       const gameStats = new GameStats(store.games)
       ui.displayGameStats(gameStats)
@@ -111,9 +110,9 @@ const onOpenGames = function () {
 }
 
 const onExitGame = function (game) {
-  display.gamePlayPage()
   api.getGames()
     .then(response => {
+      display.gamePlayPage()
       store.games = response.games
       const gameStats = new GameStats(store.games)
       $('#open-games-button span').text(gameStats.openGames)

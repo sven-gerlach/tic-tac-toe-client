@@ -1,5 +1,18 @@
 'use strict'
 
+const whileScriptLoading = function () {
+  $('#welcome-section').hide()
+  $('#sign-up-section').hide()
+  $('#sign-in-section').hide()
+  $('#nav-section').hide()
+  $('#game-play-section').hide()
+  $('#game-section').hide()
+  $('#old-game-section').hide()
+  $('#open-games-section').hide()
+  $('#account-section').hide()
+  $('#game-result-section').hide()
+}
+
 const welcomePageDisplay = function () {
   $('#welcome-section').show()
   $('#sign-up-section').hide()
@@ -122,6 +135,7 @@ function makeButtonActive (buttonText) {
 }
 
 Object.assign(module.exports, {
+  whileScriptLoading,
   welcomePageDisplay,
   signInPage,
   signUpPage,

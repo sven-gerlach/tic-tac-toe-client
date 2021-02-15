@@ -2,8 +2,10 @@
 const display = require('./display')
 const events = require('./events')
 
+// todo: this does not work as a flash of the raw HTML appears during script loading; a nice holding page would be nice
+display.whileScriptLoading()
+
 $(() => {
-  // todo: on page load, other sections are displayed for 300ms. Maybe use CSS to set display of other sections to none?
   // Welcome page
   display.welcomePageDisplay()
   $('#sign-in-button').on('click', display.signInPage)
