@@ -13,13 +13,17 @@ const GameStats = function (games) {
   }
   // todo: avoid showing NaN when 0 games have been played (show n/m instead)
   this.startedGamesPercent = () => {
-    return Math.round((this.startedGames() / this.startedGames()) * 100)
+    return this.isTypeOfNaN(Math.round((this.startedGames() / this.startedGames()) * 100))
   }
   this.openGamesPercent = () => {
-    return Math.round((this.openGames() / this.startedGames()) * 100)
+    return this.isTypeOfNaN(Math.round((this.openGames() / this.startedGames()) * 100))
   }
   this.finishedGamesPercent = () => {
-    return Math.round((this.finishedGames() / this.startedGames()) * 100)
+    return this.isTypeOfNaN(Math.round((this.finishedGames() / this.startedGames()) * 100))
+  }
+
+  this.isTypeOfNaN = function (number) {
+    return (Number.isNaN(number)) ? 'n/m' : number
   }
 }
 

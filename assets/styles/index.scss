@@ -107,28 +107,14 @@ img {
   > nav {
     margin: 10px 0
   }
-  > div {
-    background-color: rgba(255, 255, 255, 0.5);
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    padding: 10px;
-  }
 }
 
+#new-game-setup-section,
+#game-section,
+#old-game-section,
 #open-games-section,
-#old-game-section {
-  > div {
-    background-color: rgba(255, 255, 255, 0.5);
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    padding: 10px;
-  }
-}
-
 #account-section {
-  > .container {
+  > div {
     background-color: rgba(255, 255, 255, 0.5);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
