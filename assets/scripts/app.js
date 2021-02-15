@@ -29,9 +29,6 @@ $(() => {
   // Sign-out button
   $('#sign-out-button').on('click', events.onSignOut)
 
-  // On Game page
-  $('#exit-game').on('click', events.onExitGame)
-
   // On game-result page
   $('#play-new-game').on('click', events.onStartGame)
   $('#choose-old-game').on('click', events.onStartOldGame)

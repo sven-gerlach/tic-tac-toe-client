@@ -110,15 +110,16 @@ const onOpenGames = function () {
     .catch(console.error)
 }
 
-const onExitGame = function () {
+const onExitGame = function (game) {
   display.gamePlayPage()
   api.getGames()
     .then(response => {
       store.games = response.games
       const gameStats = new GameStats(store.games)
       $('#open-games-button span').text(gameStats.openGames)
+      game.resetGameBoard()
     })
-  ui.resetBoard()
+    .catch(console.error)
 }
 
 Object.assign(module.exports, {
