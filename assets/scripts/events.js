@@ -14,6 +14,7 @@ const onSignIn = function (event) {
   event.preventDefault()
   console.log('call onSignIn')
   const formData = getFormFields(event.target)
+  // todo: show a spinner for all api calls
   api.signIn(formData)
     .then(data => {
       store.user = data.user
@@ -86,6 +87,8 @@ const onStartGame = function () {
     .catch(ui.startGameFailure)
 }
 
+// todo: generic: make alert windows not go away - so only option is to push the button
+// todo: show an alert if there are no more old games to continue
 // select an old game and finish it
 const onStartOldGame = function () {
   console.log('call onStartOldGame')

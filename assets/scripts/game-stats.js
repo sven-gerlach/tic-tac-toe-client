@@ -11,7 +11,6 @@ const GameStats = function (games) {
   this.finishedGames = () => {
     return this.startedGames() - this.openGames()
   }
-  // todo: avoid showing NaN when 0 games have been played (show n/m instead)
   this.startedGamesPercent = () => {
     return this.isTypeOfNaN(Math.round((this.startedGames() / this.startedGames()) * 100))
   }

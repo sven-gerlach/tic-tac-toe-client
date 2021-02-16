@@ -45,7 +45,7 @@ $(() => {
   $('#sign-out-button').on('click', events.onSignOut)
 
   // On game-result page
-  $('#play-new-game').on('click', events.onStartGame)
+  $('#play-new-game').on('click', display.setupNewGamePage)
   $('#choose-old-game').on('click', events.onStartOldGame)
   $('#stop-playing').on('click', display.gamePlayPage)
 })

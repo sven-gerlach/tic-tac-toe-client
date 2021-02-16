@@ -94,13 +94,11 @@ const drawSymbol = function (symbol, index) {
   }, 800)
 }
 
-// todo: add button to pick an old unfinished game
 const declareWinner = function (player) {
   $('#game-result-modal .user-notification').text(`...player ${player} has won the game`)
   $('#game-result-modal').modal()
 }
 
-// todo: add button to pick an old unfinished game
 const declareDraw = function () {
   $('#game-result-modal .user-notification').text('...it\'s a draw!')
   $('#game-result-modal').modal()

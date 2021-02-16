@@ -5,13 +5,13 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
   this.cells = cells
   this.over = over
   this.id = _id
+  this.player = symbol
   this.owner = owner
   this.createdAt = createdAt
   this.updatedAt = updatedAt
-  this.player = symbol
   // todo: change logic such that this.player is either first or second mover
   this.turn = turn
-  // todo: add IA logic
+  // todo: add AI logic
   this.opponent = opponent
   this.aiDifficulty = aiDifficulty
 
@@ -49,7 +49,9 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
     ui.drawSymbol(this.player, index)
   }
   this.setNextPlayer = function () {
+    console.log(this.player);
     (this.player === 'X') ? this.player = 'O' : this.player = 'X'
+    console.log(this.player)
   }
   this.resetGameBoard = function () {
     this.over = true
