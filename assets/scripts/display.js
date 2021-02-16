@@ -6,6 +6,7 @@ const whileScriptLoading = function () {
   $('#sign-in-section').hide()
   $('#nav-section').hide()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -19,6 +20,7 @@ const welcomePageDisplay = function () {
   $('#sign-in-section').hide()
   $('#nav-section').hide()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -32,6 +34,7 @@ const signInPage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').hide()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -45,6 +48,7 @@ const signUpPage = function () {
   $('#sign-up-section').show()
   $('#nav-section').hide()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -60,6 +64,22 @@ const gamePlayPage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').show()
   $('#game-play-section').show()
+  $('#new-game-setup-section').hide()
+  $('#game-section').hide()
+  $('#old-game-section').hide()
+  $('#open-games-section').hide()
+  $('#account-section').hide()
+  $('#game-result-section').hide()
+}
+
+const setupNewGamePage = function () {
+  makeButtonActive('Play')
+  $('#welcome-section').hide()
+  $('#sign-in-section').hide()
+  $('#sign-up-section').hide()
+  $('#nav-section').show()
+  $('#game-play-section').hide()
+  $('#new-game-setup-section').show()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -74,6 +94,7 @@ const gamePage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').hide()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').show()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -88,6 +109,7 @@ const oldGamePage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').show()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').show()
   $('#open-games-section').hide()
@@ -102,6 +124,7 @@ const openGamesPage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').show()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').show()
@@ -116,6 +139,7 @@ const accountPage = function () {
   $('#sign-up-section').hide()
   $('#nav-section').show()
   $('#game-play-section').hide()
+  $('#new-game-setup-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()
@@ -140,6 +164,7 @@ Object.assign(module.exports, {
   signInPage,
   signUpPage,
   gamePlayPage,
+  setupNewGamePage,
   gamePage,
   oldGamePage,
   openGamesPage,

@@ -21,7 +21,7 @@
               Play
             </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDropGame">
-              <a id="start-game-button" class="dropdown-item" href="#">Start New Game</a>
+              <a id="setup-new-game-button" class="dropdown-item" href="#">Set-up New Game</a>
               <a id="start-old-game-button" class="dropdown-item" href="#">Choose Old Game</a>
             </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col align-self-center text-center">
               <!-- todo: img is not loading on the production server -->
-              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid" alt="Depict a Tic Tac Toe board">
+              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
             </div>
           </div>
           <nav class="row justify-content-around">
@@ -51,7 +51,7 @@
         <section id="sign-in-section">
           <div class="row">
             <div class="col align-self-center text-center">
-              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid">
+              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
             </div>
           </div>
           <div class="row">
@@ -79,7 +79,7 @@
         <section id="sign-up-section">
           <div class="row">
             <div class="col align-self-center text-center">
-              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid">
+              <img src="./assets/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
             </div>
           </div>
           <div class="row">
@@ -141,7 +141,40 @@
         </section>
         <section id="new-game-setup-section">
           <div class="container">
-
+            <div class="row align-items-center">
+              <h6 class="col-12">Symbol</h6>
+              <div id="symbol" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-4 active">X</button>
+                <button type="button" class="btn btn-sm btn-secondary col-4">O</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <h6 class="col-12">Turn</h6>
+              <div id="turn" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-4 active">First</button>
+                <button type="button" class="btn btn-sm btn-secondary col-4">Second</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <h6 class="col-12">Opponent</h6>
+              <div id="opponent" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-4 active">Human</button>
+                <button type="button" class="btn btn-sm btn-secondary col-4">Computer</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <h6 class="col-12">Computer AI Difficulty</h6>
+              <div id="aiDifficulty" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-3 active">Easy</button>
+                <button type="button" class="btn btn-sm btn-secondary col-3">Hard</button>
+                <button type="button" class="btn btn-sm btn-secondary col-3">Insane</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-12">
+                <button id="start-game-button" type="button" class="btn btn-primary">Start</button>
+              </div>
+            </div>
           </div>
         </section>
         <section id="game-section">
