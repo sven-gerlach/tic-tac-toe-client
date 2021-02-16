@@ -1,14 +1,19 @@
 'use strict'
 const ui = require('./ui')
 
-const Game = function (cells, over, _id, owner, createdAt, updatedAt) {
+const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty) {
   this.cells = cells
   this.over = over
   this.id = _id
   this.owner = owner
   this.createdAt = createdAt
   this.updatedAt = updatedAt
-  this.player = 'X'
+  this.player = symbol
+  // todo: change logic such that this.player is either first or second mover
+  this.turn = turn
+  // todo: add IA logic
+  this.opponent = opponent
+  this.aiDifficulty = aiDifficulty
 
   // returns true if the attempted move is valid and false otherwise
   this.isValidMove = function (clickedCell) {

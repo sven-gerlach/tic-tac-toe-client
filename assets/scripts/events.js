@@ -74,13 +74,13 @@ const onStartGame = function () {
   console.log('call onStartGame')
   api.startGame()
     .then(response => {
-      display.gamePage()
-      const gameSettings = collectNewGameSettings()
-      console.log(gameSettings)
-      store.game = response.game
       ui.startGameSuccess()
+      display.gamePage()
+      const {symbol, turn, opponent, aiDifficulty} = collectNewGameSettings()
+      store.game = response.game
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
-      const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
+      const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty)
+      console.log(game)
       gameLoop(game)
     })
     .catch(ui.startGameFailure)
