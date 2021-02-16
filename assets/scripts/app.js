@@ -26,6 +26,18 @@ $(() => {
   $('#open-games-button').on('click', events.onOpenGames)
   $('#account-button').on('click', display.accountPage)
 
+  // On new game setup page
+  $('#symbol').on('click', events.onToggleButtons)
+  $('#turn').on('click', events.onToggleButtons)
+  $('#opponent').on('click', events.onToggleButtons)
+  $('#aiDifficulty').on('click', events.onToggleButtons)
+  $('#hide-ai-difficulty-section').on('click', () => {
+    $('#ai-difficulty-section').hide()
+  })
+  $('#show-ai-difficulty-section').on('click', () => {
+    $('#ai-difficulty-section').show()
+  })
+
   // On account page
   $('#change-password-form').on('submit', events.onChangePassword)
 

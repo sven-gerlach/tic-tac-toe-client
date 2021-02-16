@@ -80,6 +80,7 @@ const setupNewGamePage = function () {
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#new-game-setup-section').show()
+  $('#ai-difficulty-section').hide()
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()

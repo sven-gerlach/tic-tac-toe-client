@@ -8,6 +8,7 @@ const gameModule = require('./game')
 const gameLoop = require('./game-loop').gameLoop
 const GameStats = require('./game-stats').GameStats
 const oldGames = require('./old-games')
+const collectNewGameSettings = require('./game-settings').collectNewGameSettings
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -55,12 +56,27 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+// toggle the radio buttons on the new game setup page
+const onToggleButtons = function (event) {
+  if (!$(event.target).hasClass('active')) {
+    $(event.currentTarget).children().each(function () {
+      if (this === event.target) {
+        $(this).addClass('active')
+      } else {
+        $(this).removeClass('active')
+      }
+    })
+  }
+}
+
 // make ajax request and deal with returned promise by either instantiating gameBoard or displaying an error message to user
 const onStartGame = function () {
   console.log('call onStartGame')
   api.startGame()
     .then(response => {
       display.gamePage()
+      const gameSettings = collectNewGameSettings()
+      console.log(gameSettings)
       store.game = response.game
       ui.startGameSuccess()
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
@@ -126,6 +142,7 @@ Object.assign(module.exports, {
   onSignIn,
   onSignOut,
   onChangePassword,
+  onToggleButtons,
   onStartGame,
   onExitGame,
   onOpenGames,
