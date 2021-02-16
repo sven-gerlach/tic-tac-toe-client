@@ -15,6 +15,8 @@ const gameLoop = function (game) {
     ui.populateGameBoard(game.cells)
   }
   ui.displayNextPlayer(game.player)
+  // if game.turn === 'second' then machine moves else human moves
+  // at the end of human move (inside click event) call machine move)
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
       const selectedCell = $(event.target).data('game-board-index')
