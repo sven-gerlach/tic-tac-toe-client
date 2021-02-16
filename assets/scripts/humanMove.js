@@ -2,11 +2,15 @@ const ui = require('./ui')
 const api = require('./api')
 const nextAiMove = require('./aiMove').nextAiMove
 
-const nextHumanMove = function (game) {
+const firstHumanMove = function (game) {
   if (game.turn === 'Second') {
     game.setNextPlayer()
   }
   ui.displayNextPlayer(game.player)
+  nextHumanMove(game)
+}
+
+const nextHumanMove = function (game) {
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
       const selectedCell = $(event.target).data('game-board-index')
@@ -16,6 +20,7 @@ const nextHumanMove = function (game) {
         // reset game before api update
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
+        console.log('human: ' + apiDataFeed)
         api.updateGame(game, apiDataFeed)
           .then(console.log)
           .catch(console.error)
@@ -23,13 +28,15 @@ const nextHumanMove = function (game) {
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(console.log)
+          .then(() => {
+            game.setNextPlayer()
+            ui.displayNextPlayer(game.player)
+            if (game.opponent === 'Computer') {
+              $('#game-board').off()
+              nextAiMove(game)
+            }
+          })
           .catch(console.error)
-        game.setNextPlayer()
-        ui.displayNextPlayer(game.player)
-        if (game.opponent === 'Computer') {
-          nextAiMove(game)
-        }
       }
     } else {
       ui.displayInvalidMove(game.player)
@@ -38,5 +45,6 @@ const nextHumanMove = function (game) {
 }
 
 Object.assign(module.exports, {
+  firstHumanMove,
   nextHumanMove
 })

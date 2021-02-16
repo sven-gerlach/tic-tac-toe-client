@@ -80,7 +80,11 @@ const setupNewGamePage = function () {
   $('#nav-section').show()
   $('#game-play-section').hide()
   $('#new-game-setup-section').show()
-  $('#ai-difficulty-section').hide()
+  if ($('#show-ai-difficulty-section').hasClass('active')) {
+    $('#ai-difficulty-section').show()
+  } else {
+    $('#ai-difficulty-section').hide()
+  }
   $('#game-section').hide()
   $('#old-game-section').hide()
   $('#open-games-section').hide()

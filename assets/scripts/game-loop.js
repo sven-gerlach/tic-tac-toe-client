@@ -1,7 +1,7 @@
 'use strict'
 const ui = require('./ui')
 const events = require('./events')
-const nextHumanMove = require('./humanMove').nextHumanMove
+const firstHumanMove = require('./humanMove').firstHumanMove
 const nextAiMove = require('./aiMove').nextAiMove
 
 const gameLoop = function (game) {
@@ -15,12 +15,12 @@ const gameLoop = function (game) {
     ui.populateGameBoard(game.cells)
   }
   if (game.opponent === 'Human') {
-    nextHumanMove(game)
+    firstHumanMove(game)
   } else {
-    if (game.turn === 'first') {
-      nextHumanMove(game)
+    if (game.turn === 'First') {
+      firstHumanMove(game)
     } else {
-      nextAiMove()
+      nextAiMove(game)
     }
   }
 }
