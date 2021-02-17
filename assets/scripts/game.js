@@ -49,9 +49,7 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
     ui.drawSymbol(this.player, index)
   }
   this.setNextPlayer = function () {
-    console.log(this.player);
     (this.player === 'X') ? this.player = 'O' : this.player = 'X'
-    console.log(this.player)
   }
   this.resetGameBoard = function () {
     this.over = true

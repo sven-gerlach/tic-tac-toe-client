@@ -67,6 +67,7 @@ const updateGame = function (game, data) {
   })
 }
 
+// todo: this function is called multiple times (unnecessarily so) when exiting a game
 const getGames = function () {
   console.log('call getGames')
   return $.ajax({

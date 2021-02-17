@@ -15,11 +15,18 @@ const gameLoop = function (game) {
     ui.populateGameBoard(game.cells)
   }
   if (game.opponent === 'Human') {
-    firstHumanMove(game)
-  } else {
     if (game.turn === 'First') {
       firstHumanMove(game)
     } else {
+      game.setNextPlayer()
+      firstHumanMove(game)
+    }
+  }
+  if (game.opponent === 'Computer') {
+    if (game.turn === 'First') {
+      firstHumanMove(game)
+    } else {
+      game.setNextPlayer()
       nextAiMove(game)
     }
   }
