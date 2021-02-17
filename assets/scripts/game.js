@@ -9,9 +9,7 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
   this.owner = owner
   this.createdAt = createdAt
   this.updatedAt = updatedAt
-  // todo: change logic such that this.player is either first or second mover
   this.turn = turn
-  // todo: add AI logic
   this.opponent = opponent
   this.aiDifficulty = aiDifficulty
 

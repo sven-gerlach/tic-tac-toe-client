@@ -88,7 +88,6 @@ const onStartGame = function () {
 }
 
 // todo: generic: make alert windows not go away - so only option is to push the button
-// todo: show an alert if there are no more old games to continue
 // select an old game and finish it
 const onStartOldGame = function () {
   console.log('call onStartOldGame')
