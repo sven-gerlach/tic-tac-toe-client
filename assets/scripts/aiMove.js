@@ -8,9 +8,9 @@ const nextAiMove = function (game) {
   if (game.aiDifficulty === 'Easy') {
     selectedCell = getEasyAiNextMove(game)
   } else if (game.aiDifficulty === 'Hard') {
-    selectedCell = getHardAiNextMove(game)
+    selectedCell = getInsaneAiNextMove(game, 7)
   } else {
-    selectedCell = getInsaneAiNextMove(game)
+    selectedCell = getInsaneAiNextMove(game, 8)
   }
   let apiDataFeed
   console.log('AI selected cell: ' + selectedCell)
@@ -47,14 +47,8 @@ const getEasyAiNextMove = function (game) {
   return indexOfUnoccupiedCells[randomNumber]
 }
 
-const getHardAiNextMove = function (game) {
-  return 8
-}
-
-const getInsaneAiNextMove = function (game) {
+const getInsaneAiNextMove = function (game, maxDepth) {
   const gameBoard = game.cells
-  // todo: make max depth flexible to build in fallibility
-  // const maxDepth = n
   const depth = 0
   const isMaximizing = true
   const player = game.player
@@ -77,6 +71,10 @@ const getInsaneAiNextMove = function (game) {
 
     if (gameObj.isDraw()) {
       return (isMaximizing) ? depth : depth
+    }
+
+    if (depth >= maxDepth) {
+      return 0
     }
 
     if (isMaximizing) {
