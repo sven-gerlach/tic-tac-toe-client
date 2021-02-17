@@ -79,6 +79,7 @@ const getInsaneAiNextMove = function (game) {
       isWon: game.isWon,
       isDraw: game.isDraw
     }
+    console.log('depth: ' + depth)
 
     if (duckTypeGameObj.isWon()) {
       return utilityFunc('win', depth)
@@ -93,7 +94,7 @@ const getInsaneAiNextMove = function (game) {
       gameBoard.forEach((cell, index) => {
         if (cell === '') {
           gameBoard[index] = game.player
-          const utility = minimax(gameBoard, ++depth, false, nextPlayer(player))
+          const utility = minimax(gameBoard, depth + 1, false, nextPlayer(player))
           if (utility > maxUtility) {
             maxUtility = utility
             if (depth === 0) {
@@ -115,7 +116,7 @@ const getInsaneAiNextMove = function (game) {
       gameBoard.forEach((cell, index) => {
         if (cell === '') {
           gameBoard[index] = game.player
-          const utility = minimax(gameBoard, ++depth, true, nextPlayer(player))
+          const utility = minimax(gameBoard, depth + 1, true, nextPlayer(player))
           if (utility < minUtility) {
             minUtility = utility
             if (depth === 0) {

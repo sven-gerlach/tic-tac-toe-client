@@ -14,9 +14,11 @@ const gameLoop = function (game) {
     game.setFirstMover()
     ui.populateGameBoard(game.cells)
   }
+  console.log('start')
   if (game.opponent === 'Human') {
     if (game.turn === 'First') {
       firstHumanMove(game)
+      console.log('second')
     } else {
       game.setNextPlayer()
       firstHumanMove(game)

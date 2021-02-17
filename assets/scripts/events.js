@@ -103,12 +103,10 @@ const onStartOldGame = function () {
       const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
       $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
       $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
-        console.log(event.target)
-        console.log(event.currentTarget)
-        console.log('Whaaat?')
         const gameId = $(event.target).data('game-id')
         const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
-        const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt)
+        // hard-code generic game-settings for unfinished games due to lacking the ability to store additional data on server
+        const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, 'X', 'First', 'Human')
         display.gamePage()
         gameLoop(game)
       })
