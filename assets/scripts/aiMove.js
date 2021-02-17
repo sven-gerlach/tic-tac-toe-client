@@ -52,49 +52,41 @@ const getHardAiNextMove = function (game) {
 }
 
 const getInsaneAiNextMove = function (game) {
-  const player = game.player
-  const maximizer = true
-  const gameBoard = JSON.parse(JSON.stringify(game.cells))
-  const depth = 0
+  const gameBoard = game.cells
   // todo: make max depth flexible to build in fallibility
   // const maxDepth = n
+  const depth = 0
+  const isMaximizing = true
+  const player = game.player
 
-  // evaluates a board composition and returns that value
-  const utilityFunc = function (result, depth) {
-    if (depth % 2 === 0) {
-      return (result === 'win') ? 20 - depth : 0 + depth
-    } else {
-      return (result === 'win') ? -20 + depth : 0 + depth
-    }
-  }
-
-  const nextPlayer = function (player) {
-    return (player === 'X') ? 'O' : 'X'
-  }
-
-  const minimax = function (gameBoard, depth, maximizer, player) {
-    const duckTypeGameObj = {
+  const minimax = function (gameBoard, depth, isMaximizing, player) {
+    const gameObj = {
       cells: gameBoard,
       player: player,
       isWon: game.isWon,
       isDraw: game.isDraw
     }
-    console.log('depth: ' + depth)
 
-    if (duckTypeGameObj.isWon()) {
-      return utilityFunc('win', depth)
-    } else if (duckTypeGameObj.isDraw()) {
-      console.log(gameBoard, utilityFunc('win', depth))
-      return utilityFunc('draw', depth)
+    const nextPlayer = function () {
+      return (player === 'X') ? 'O' : 'X'
     }
 
-    if (maximizer) {
+    if (gameObj.isWon()) {
+      return (isMaximizing) ? 20 - depth : -20 + depth
+    }
+
+    if (gameObj.isDraw()) {
+      return (isMaximizing) ? depth : depth
+    }
+
+    if (isMaximizing) {
       let maxUtility = -Infinity
       let bestMove
       gameBoard.forEach((cell, index) => {
         if (cell === '') {
-          gameBoard[index] = game.player
-          const utility = minimax(gameBoard, depth + 1, false, nextPlayer(player))
+          gameBoard[index] = player
+          const utility = minimax(gameBoard, depth + 1, false, nextPlayer())
+          gameBoard[index] = ''
           if (utility > maxUtility) {
             maxUtility = utility
             if (depth === 0) {
@@ -110,29 +102,22 @@ const getInsaneAiNextMove = function (game) {
       }
     }
 
-    if (!maximizer) {
+    if (!isMaximizing) {
       let minUtility = +Infinity
-      let bestMove
       gameBoard.forEach((cell, index) => {
         if (cell === '') {
-          gameBoard[index] = game.player
-          const utility = minimax(gameBoard, depth + 1, true, nextPlayer(player))
+          gameBoard[index] = player
+          const utility = minimax(gameBoard, depth + 1, true, nextPlayer())
+          gameBoard[index] = ''
           if (utility < minUtility) {
             minUtility = utility
-            if (depth === 0) {
-              bestMove = index
-            }
           }
         }
       })
-      if (depth === 0) {
-        return bestMove
-      } else {
-        return minUtility
-      }
+      return minUtility
     }
   }
-  return minimax(gameBoard, depth, maximizer, player)
+  return minimax(gameBoard, depth, isMaximizing, player)
 }
 
 Object.assign(module.exports, {
