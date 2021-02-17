@@ -122,6 +122,16 @@ const oldGamePage = function () {
   $('#game-result-section').hide()
 }
 
+const hideCarousel = function () {
+  $('#carouselOldGamesIndicators').hide()
+  $('#old-game-section .user-notification').text('You do not have any unfinished games to display.').show()
+}
+
+const showCarousel = function () {
+  $('#carouselOldGamesIndicators').show()
+  $('#old-game-section .user-notification').text('').hide()
+}
+
 const openGamesPage = function () {
   makeButtonActive('Games')
   $('#welcome-section').hide()
@@ -172,6 +182,8 @@ Object.assign(module.exports, {
   setupNewGamePage,
   gamePage,
   oldGamePage,
+  hideCarousel,
+  showCarousel,
   openGamesPage,
   accountPage
 })

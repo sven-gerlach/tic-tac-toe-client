@@ -6,7 +6,6 @@ const api = require('./api')
 
 const signUpSuccess = function (data) {
   console.log('call signUpSuccess')
-  display.signInPage()
   $('#sign-up-form').trigger('reset')
 }
 

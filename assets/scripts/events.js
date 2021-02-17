@@ -97,19 +97,25 @@ const onStartOldGame = function () {
     .then(response => {
       store.games = response.games
       display.oldGamePage()
-      // construct html elements that then replace the old carousel items and indicators
-      const unfinishedGames = oldGames.getUnfinishedGames()
-      const htmlCarouselItems = oldGames.makeHtmlCarouselItems(unfinishedGames)
-      const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
-      $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
-      $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
-        const gameId = $(event.target).data('game-id')
-        const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
-        // hard-code generic game-settings for unfinished games due to lacking the ability to store additional data on server
-        const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, 'X', 'First', 'Human')
-        display.gamePage()
-        gameLoop(game)
-      })
+      console.log(store.games.filter(game => game.over === false).length)
+      if (store.games.filter(game => game.over === false).length) {
+        display.showCarousel()
+        // construct html elements that then replace the old carousel items and indicators
+        const unfinishedGames = oldGames.getUnfinishedGames()
+        const htmlCarouselItems = oldGames.makeHtmlCarouselItems(unfinishedGames)
+        const htmlCarouselIndicators = oldGames.makeHtmlCarouselIndicators(unfinishedGames)
+        $('#carouselOldGamesIndicators > ol').html(htmlCarouselIndicators)
+        $('#carouselOldGamesIndicators .carousel-inner').html(htmlCarouselItems).on('click', event => {
+          const gameId = $(event.target).data('game-id')
+          const { cells, over, _id, owner, createdAt, updatedAt } = store.games.filter(game => game._id === gameId)[0]
+          // hard-code generic game-settings for unfinished games due to lacking the ability to store additional data on server
+          const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, 'X', 'First', 'Human')
+          display.gamePage()
+          gameLoop(game)
+        })
+      } else {
+        display.hideCarousel()
+      }
     })
     .catch(console.error)
 }
