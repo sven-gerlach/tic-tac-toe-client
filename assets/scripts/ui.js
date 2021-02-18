@@ -47,7 +47,6 @@ const signOutFailure = function () {
   console.log('call signOutFailure')
 }
 
-// todo: if a new password is entered but not submitted, a new user using the same computer, can see this password
 const changePasswordSuccess = function () {
   $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('alert-success')
   setTimeout(() => {

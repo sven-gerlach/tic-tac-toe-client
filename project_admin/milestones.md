@@ -77,10 +77,10 @@
 ## Final Submission Checklist
 -[x] Debug, test edge and corner cases
 -[x] Remove all console.log()
--[ ] [Basic requirements](project-guidelines/requirements.md)
+-[x] [Basic requirements](project-guidelines/requirements.md)
   -[x] Deployment requirements
   -[x] Version control requirements
-  -[ ] Documentation Requirements
+  -[x] Documentation Requirements
   -[x] Application requirements
   -[x] API requirements
   -[x] Professional requirements
