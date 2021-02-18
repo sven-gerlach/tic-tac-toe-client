@@ -44,6 +44,7 @@ const signInFailure = function () {
 
 const signOutSuccess = function () {
   console.log('call signOutSuccess')
+  $('form').trigger('reset')
   display.welcomePageDisplay()
 }
 
@@ -51,12 +52,14 @@ const signOutFailure = function () {
   console.log('call signOutFailure')
 }
 
+// todo: if a new password is entered but not submitted, a new user using the same computer, can see this password
 const changePasswordSuccess = function () {
   console.log('call changePasswordSuccess')
   $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('alert-success')
   setTimeout(() => {
     $('#account-section .user-notification').text('').removeClass('alert-success')
   }, 5 * 1000)
+  $('#change-password-form').trigger('reset')
 }
 
 const changePasswordFailure = function () {

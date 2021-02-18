@@ -16,8 +16,6 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
   // returns true if the attempted move is valid and false otherwise
   this.isValidMove = function (clickedCell) {
     const clickedCellIndex = $(clickedCell).data('game-board-index')
-    console.log(clickedCellIndex)
-    console.log(this.cells[clickedCellIndex])
     return this.cells[clickedCellIndex] === ''
   }
   this.isWon = function () {

@@ -1,13 +1,18 @@
 'use strict'
 const display = require('./display')
 const events = require('./events')
+const toggleFullScreen = require('./full-screen').toggleFullScreen
 
 // todo: this does not work as a flash of the raw HTML appears during script loading; a nice holding page would be nice
-display.whileScriptLoading()
+display.welcomePageDisplay()
+
+// allow going into fullscreen upon dbl clicking
+document.addEventListener('dblclick', () => {
+  toggleFullScreen()
+}, false)
 
 $(() => {
   // Welcome page
-  display.welcomePageDisplay()
   $('#sign-in-button').on('click', display.signInPage)
   $('#sign-up-button').on('click', display.signUpPage)
 

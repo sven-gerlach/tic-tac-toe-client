@@ -10,10 +10,9 @@ const nextAiMove = function (game) {
   } else if (game.aiDifficulty === 'Hard') {
     selectedCell = getInsaneAiNextMove(game, 7)
   } else {
-    selectedCell = getInsaneAiNextMove(game, 8)
+    selectedCell = getInsaneAiNextMove(game, 9)
   }
   let apiDataFeed
-  console.log('AI selected cell: ' + selectedCell)
   game.updateGameBoard(selectedCell, game.player)
   if (game.isWon() || game.isDraw()) {
     // reset game before api update
@@ -48,43 +47,62 @@ const getEasyAiNextMove = function (game) {
 }
 
 const getInsaneAiNextMove = function (game, maxDepth) {
-  const gameBoard = game.cells
-  const depth = 0
-  const isMaximizing = true
-  const player = game.player
+  const isWin = function (game, player) {
+    const winConditions = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
+    // map win conditions onto game.cells and check if they are the same
+    return winConditions.some(winCondition => {
+      return winCondition.every(index => {
+        return game.cells[index] === player
+      })
+    })
+  }
 
-  const minimax = function (gameBoard, depth, isMaximizing, player) {
-    const gameObj = {
-      cells: gameBoard,
-      player: player,
-      isWon: game.isWon,
-      isDraw: game.isDraw
+  const isDraw = function (game) {
+    return !isWin(game) && game.cells.filter(i => i === 'X' || i === 'O').length === 9
+  }
+
+  // game.cells = ['X', 'X', 'X', '', '', '', '', '', '']
+  // console.log(isWin(game))
+  // console.log(isDraw(game))
+  //
+  // game.cells = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X']
+  // console.log(isWin(game))
+  // console.log(isDraw(game))
+
+  const nextPlayer = function (player) {
+    return (player === 'X') ? 'O' : 'X'
+  }
+
+  const minimax = function (game, depth, isMaximizing, player) {
+    if (isWin(game, nextPlayer(player))) {
+      return (!isMaximizing) ? 20 - depth : -20 + depth
     }
 
-    const nextPlayer = function () {
-      return (player === 'X') ? 'O' : 'X'
+    if (isDraw(game)) {
+      return depth
     }
 
-    if (gameObj.isWon()) {
-      return (isMaximizing) ? 20 - depth : -20 + depth
-    }
-
-    if (gameObj.isDraw()) {
-      return (isMaximizing) ? depth : depth
-    }
-
-    if (depth >= maxDepth) {
+    if (depth > maxDepth) {
       return 0
     }
 
     if (isMaximizing) {
       let maxUtility = -Infinity
       let bestMove
-      gameBoard.forEach((cell, index) => {
-        if (cell === '') {
-          gameBoard[index] = player
-          const utility = minimax(gameBoard, depth + 1, false, nextPlayer())
-          gameBoard[index] = ''
+      for (let index = 0; index < game.cells.length; index++) {
+        if (game.cells[index] === '') {
+          game.cells[index] = player
+          const utility = minimax(game, depth + 1, false, nextPlayer(player))
+          game.cells[index] = ''
           if (utility > maxUtility) {
             maxUtility = utility
             if (depth === 0) {
@@ -92,7 +110,7 @@ const getInsaneAiNextMove = function (game, maxDepth) {
             }
           }
         }
-      })
+      }
       if (depth === 0) {
         return bestMove
       } else {
@@ -102,20 +120,22 @@ const getInsaneAiNextMove = function (game, maxDepth) {
 
     if (!isMaximizing) {
       let minUtility = +Infinity
-      gameBoard.forEach((cell, index) => {
-        if (cell === '') {
-          gameBoard[index] = player
-          const utility = minimax(gameBoard, depth + 1, true, nextPlayer())
-          gameBoard[index] = ''
+      for (let index = 0; index < game.cells.length; index++) {
+        if (game.cells[index] === '') {
+          game.cells[index] = player
+          const utility = minimax(game, depth + 1, true, nextPlayer(player))
+          game.cells[index] = ''
           if (utility < minUtility) {
             minUtility = utility
           }
         }
-      })
+      }
       return minUtility
     }
   }
-  return minimax(gameBoard, depth, isMaximizing, player)
+  const bestMove = minimax(game, 0, true, game.player)
+  console.log(bestMove)
+  return bestMove
 }
 
 Object.assign(module.exports, {

@@ -3,9 +3,6 @@ const api = require('./api')
 const nextAiMove = require('./aiMove').nextAiMove
 
 const firstHumanMove = function (game) {
-  // if (game.turn === 'Second') {
-  //   game.setNextPlayer()
-  // }
   ui.displayNextPlayer(game.player)
   nextHumanMove(game)
 }
