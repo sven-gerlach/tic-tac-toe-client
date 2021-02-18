@@ -7,10 +7,18 @@ const toggleFullScreen = require('./full-screen').toggleFullScreen
 // todo: this does not work as a flash of the raw HTML appears during script loading; a nice holding page would be nice
 display.welcomePageDisplay()
 
-// allow going into fullscreen upon dbl clicking
-document.addEventListener('dblclick', () => {
-  toggleFullScreen()
-}, false)
+// // allow going into fullscreen upon dbl clicking
+// document.addEventListener('dblclick', () => {
+//   toggleFullScreen()
+// }, false)
+
+window.addEventListener('load', function () {
+  // Set a timeout...
+  setTimeout(function () {
+    // Hide the address bar!
+    window.scrollTo(0, 1)
+  }, 0)
+})
 
 $(() => {
   // Welcome page
