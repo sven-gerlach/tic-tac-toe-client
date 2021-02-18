@@ -5,7 +5,6 @@ const firstHumanMove = require('./humanMove').firstHumanMove
 const nextAiMove = require('./aiMove').nextAiMove
 
 const gameLoop = function (game) {
-  console.log('call gameLoop')
   // if game.cells contains any X or O, prepare the game board for continuing an old game
   $('#exit-game').on('click', () => {
     events.onExitGame(game)
@@ -14,11 +13,9 @@ const gameLoop = function (game) {
     game.setFirstMover()
     ui.populateGameBoard(game.cells)
   }
-  console.log('start')
   if (game.opponent === 'Human') {
     if (game.turn === 'First') {
       firstHumanMove(game)
-      console.log('second')
     } else {
       game.setNextPlayer()
       firstHumanMove(game)

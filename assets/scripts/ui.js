@@ -5,12 +5,10 @@ const store = require('./store').store
 const api = require('./api')
 
 const signUpSuccess = function (data) {
-  console.log('call signUpSuccess')
   $('#sign-up-form').trigger('reset')
 }
 
 const signUpFailure = function () {
-  console.log('call signUpFailure')
   $('#sign-up-section .user-notification').text('Something went wrong. Please try again.').addClass('alert-danger')
   setTimeout(() => {
     $('#sign-up-section .user-notification').text('').removeClass('alert-danger')
@@ -19,7 +17,6 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function () {
-  console.log('call signInSuccess')
   $('#sign-in-form').trigger('reset')
   display.gamePlayPage()
 
@@ -34,7 +31,6 @@ const signInSuccess = function () {
 }
 
 const signInFailure = function () {
-  console.log('call signInFailure')
   $('#sign-in-section .user-notification').text('Something went wrong. Please try again.').addClass('alert-danger')
   setTimeout(() => {
     $('#sign-in-section .user-notification').text('').removeClass('alert-danger')
@@ -43,7 +39,6 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
-  console.log('call signOutSuccess')
   $('form').trigger('reset')
   display.welcomePageDisplay()
 }
@@ -54,7 +49,6 @@ const signOutFailure = function () {
 
 // todo: if a new password is entered but not submitted, a new user using the same computer, can see this password
 const changePasswordSuccess = function () {
-  console.log('call changePasswordSuccess')
   $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('alert-success')
   setTimeout(() => {
     $('#account-section .user-notification').text('').removeClass('alert-success')
@@ -63,7 +57,6 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
-  console.log('call changePasswordFailure')
   $('#account-section .user-notification').text('Oh no, something went wrong! Your password has not been changed.').addClass('alert-danger')
   setTimeout(() => {
     $('#account-section .user-notification').text('').removeClass('alert-danger')

@@ -17,7 +17,6 @@ const nextHumanMove = function (game) {
         // reset game before api update
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
-        console.log('human: ' + apiDataFeed)
         api.updateGame(game, apiDataFeed)
           .then(console.log)
           .catch(console.error)

@@ -48,7 +48,6 @@ $('#create-book').on('submit', function (event) {
 
   const form = event.target
   const bookData = getFormFields(form)
-  console.log(bookData) // returned JavaScript object
 })
 ```
 
@@ -110,7 +109,6 @@ const data = {}
 
 data['book']['title'] = 'A book title our user gave us'
 data['movie']['title'] = 'A movie title our user gave us'
-console.log(data)
 /*
 {
   movie: { title: 'A movie title our user gave us' },

@@ -127,6 +127,10 @@ img {
   }
 }
 
+#account-section .user-notification {
+  margin: 15px 0;
+}
+
 // todo: how can the 9 squares be squares that fill out the largest containing square subject to screen width / height
 #game-board {
   display: grid;

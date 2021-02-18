@@ -75,14 +75,14 @@
 -[ ] Draft [documentation requirements](project-guidelines/requirements.md)
 
 ## Final Submission Checklist
--[ ] Debug, test edge and corner cases
--[ ] Remove all console.log()
+-[x] Debug, test edge and corner cases
+-[x] Remove all console.log()
 -[ ] [Basic requirements](project-guidelines/requirements.md)
   -[ ] Deployment requirements
   -[ ] Version control requirements
   -[ ] Documentation Requirements
-  -[ ] Application requirements
-  -[ ] API requirements
-  -[ ] Professional requirements
--[ ] [Stretch goals](project-guidelines/stretch_goals.md)
+  -[x] Application requirements
+  -[x] API requirements
+  -[x] Professional requirements
+-[x] [Stretch goals](project-guidelines/stretch_goals.md)
 

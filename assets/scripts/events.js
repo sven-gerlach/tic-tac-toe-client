@@ -12,7 +12,6 @@ const collectNewGameSettings = require('./game-settings').collectNewGameSettings
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('call onSignIn')
   const formData = getFormFields(event.target)
   // todo: show a spinner for all api calls
   api.signIn(formData)
@@ -25,7 +24,6 @@ const onSignIn = function (event) {
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('call onSignUp')
   const formData = getFormFields(event.target)
   api.signUp(formData)
     .then(data => {
@@ -42,7 +40,6 @@ const onSignUp = function (event) {
 }
 
 const onSignOut = function () {
-  console.log('call onSignOut')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -50,7 +47,6 @@ const onSignOut = function () {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('call onChangePassword')
   const formData = getFormFields(event.target)
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
@@ -72,7 +68,6 @@ const onToggleButtons = function (event) {
 
 // make ajax request and deal with returned promise by either instantiating gameBoard or displaying an error message to user
 const onStartGame = function () {
-  console.log('call onStartGame')
   api.startGame()
     .then(response => {
       ui.startGameSuccess()
@@ -81,7 +76,6 @@ const onStartGame = function () {
       store.game = response.game
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty)
-      console.log(game)
       gameLoop(game)
     })
     .catch(ui.startGameFailure)
@@ -90,13 +84,11 @@ const onStartGame = function () {
 // todo: generic: make alert windows not go away - so only option is to push the button
 // select an old game and finish it
 const onStartOldGame = function () {
-  console.log('call onStartOldGame')
   // update old games for most recent developments
   api.getGames()
     .then(response => {
       store.games = response.games
       display.oldGamePage()
-      console.log(store.games.filter(game => game.over === false).length)
       if (store.games.filter(game => game.over === false).length) {
         display.showCarousel()
         // construct html elements that then replace the old carousel items and indicators

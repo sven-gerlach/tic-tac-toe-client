@@ -3,7 +3,6 @@ const config = require('./config')
 const store = require('./store').store
 
 const signUp = function (data) {
-  console.log('call signUp')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up',
@@ -12,7 +11,6 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log('call signIn')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -21,7 +19,6 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
-  console.log('call signOut')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -32,7 +29,6 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('call changePassword')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -44,7 +40,6 @@ const changePassword = function (data) {
 }
 
 const startGame = function () {
-  console.log('call startGame')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -56,7 +51,6 @@ const startGame = function () {
 }
 
 const updateGame = function (game, data) {
-  console.log('call updateGame')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + game.id,
@@ -69,7 +63,6 @@ const updateGame = function (game, data) {
 
 // todo: this function is called multiple times (unnecessarily so) when exiting a game
 const getGames = function () {
-  console.log('call getGames')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games',

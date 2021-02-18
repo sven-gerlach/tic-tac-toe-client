@@ -70,14 +70,6 @@ const getInsaneAiNextMove = function (game, maxDepth) {
     return !isWin(game) && game.cells.filter(i => i === 'X' || i === 'O').length === 9
   }
 
-  // game.cells = ['X', 'X', 'X', '', '', '', '', '', '']
-  // console.log(isWin(game))
-  // console.log(isDraw(game))
-  //
-  // game.cells = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X']
-  // console.log(isWin(game))
-  // console.log(isDraw(game))
-
   const nextPlayer = function (player) {
     return (player === 'X') ? 'O' : 'X'
   }
@@ -133,9 +125,7 @@ const getInsaneAiNextMove = function (game, maxDepth) {
       return minUtility
     }
   }
-  const bestMove = minimax(game, 0, true, game.player)
-  console.log(bestMove)
-  return bestMove
+  return minimax(game, 0, true, game.player)
 }
 
 Object.assign(module.exports, {
