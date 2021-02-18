@@ -3,6 +3,8 @@ const display = require('./display')
 const events = require('./events')
 const toggleFullScreen = require('./full-screen').toggleFullScreen
 
+// todo: refactor, refactor, refactor!!!
+
 // todo: this does not work as a flash of the raw HTML appears during script loading; a nice holding page would be nice
 display.welcomePageDisplay()
 

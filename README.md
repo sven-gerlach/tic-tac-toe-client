@@ -141,11 +141,13 @@ Before this project was developed in code the below planning and workstream mana
 
 ### Technologies Used
 
-- jQuery
-- HTML/CSS
-- Bootstrap
-- Javascript
+- HTML
+- CSS
 - SCSS
+- Javascript
+- jQuery
+- Bootstrap
+- Shell
 
 ### Unsolved Problems
 - Option for users to switch to full screen on their mobile devices inside their browsers

@@ -8,9 +8,9 @@ const nextAiMove = function (game) {
   if (game.aiDifficulty === 'Easy') {
     selectedCell = getEasyAiNextMove(game)
   } else if (game.aiDifficulty === 'Hard') {
-    selectedCell = getInsaneAiNextMove(game, 7)
+    selectedCell = getInsaneAiNextMove(game, 2)
   } else {
-    selectedCell = getInsaneAiNextMove(game, 9)
+    selectedCell = getInsaneAiNextMove(game, 8)
   }
   let apiDataFeed
   game.updateGameBoard(selectedCell, game.player)
