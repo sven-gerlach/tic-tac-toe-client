@@ -10,8 +10,8 @@
 
 ### Documentation Requirements
 
-1.  [ ] Pin your repository on GitHub as a [Popular Repository](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)
-1.  [ ] Complete the repository `Description` field and `Website` field with a meaningful sentence description of the application and link to the live URL
+1.  [x] Pin your repository on GitHub as a [Popular Repository](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)
+1.  [x] Complete the repository `Description` field and `Website` field with a meaningful sentence description of the application and link to the live URL
     ![github image](https://git.generalassemb.ly/storage/user/3667/files/beae41ae-aaaa-11e7-8867-63958d376a0b)
 1.  [ ] README.md must include a [list of technologies used](example_readme.md#technologies-used)
 1.  [ ] README.md must include your [planning and a story about your development process and problem-solving strategy](example_readme.md#planning-story).

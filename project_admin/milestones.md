@@ -78,8 +78,8 @@
 -[x] Debug, test edge and corner cases
 -[x] Remove all console.log()
 -[ ] [Basic requirements](project-guidelines/requirements.md)
-  -[ ] Deployment requirements
-  -[ ] Version control requirements
+  -[x] Deployment requirements
+  -[x] Version control requirements
   -[ ] Documentation Requirements
   -[x] Application requirements
   -[x] API requirements
