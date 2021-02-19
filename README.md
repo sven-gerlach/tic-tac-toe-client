@@ -1,5 +1,7 @@
 # Tic Tac Toe: a single-page-application of this popular game with an unbeatable AI opponent
 
+## Summary
+
 This application allows the user to play the popular game Tic Tac Toe by themselves, against other human players, or against a computer opponent.
 
 This Single Page Application (SPA) of the game is entirely CRUD based, in that all user account details, including email address, password, as well as all game related and meta-data are stored decentralised on a server.
@@ -159,5 +161,5 @@ Before this project was developed in code the below planning and workstream mana
 
 ## Images
 
-#### Wireframe:
-![wireframe](https://imgur.com/gallery/rlyeoQ5)
+### Wireframe:
+![wireframe](public/images/Wireframe.png)
