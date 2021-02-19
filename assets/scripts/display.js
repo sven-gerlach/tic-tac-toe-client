@@ -1,4 +1,5 @@
 'use strict'
+const ui = require('./ui')
 
 const welcomePageDisplay = function () {
   $('#welcome-section').show()
@@ -43,6 +44,7 @@ const signUpPage = function () {
 }
 
 const gamePlayPage = function () {
+  ui.resetBoard()
   // highlights the button as active if page is viewed
   makeButtonActive('Intro')
   $('#welcome-section').hide()
@@ -59,6 +61,7 @@ const gamePlayPage = function () {
 }
 
 const setupNewGamePage = function () {
+  ui.resetBoard()
   makeButtonActive('Play')
   $('#welcome-section').hide()
   $('#sign-in-section').hide()

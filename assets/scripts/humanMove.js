@@ -18,9 +18,11 @@ const nextHumanMove = function (game) {
         game.resetGameBoard()
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(console.log)
-          .catch(console.error)
-        game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
+          .then()
+          .catch()
+        setTimeout(() => {
+          game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
+        }, 1000)
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)

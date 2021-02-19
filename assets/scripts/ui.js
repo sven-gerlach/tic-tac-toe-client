@@ -43,10 +43,6 @@ const signOutSuccess = function () {
   display.welcomePageDisplay()
 }
 
-const signOutFailure = function () {
-  console.log('call signOutFailure')
-}
-
 const changePasswordSuccess = function () {
   $('#account-section .user-notification').text('Success! Your password has been changed.').addClass('alert-success')
   setTimeout(() => {
@@ -60,14 +56,6 @@ const changePasswordFailure = function () {
   setTimeout(() => {
     $('#account-section .user-notification').text('').removeClass('alert-danger')
   }, 5 * 1000)
-}
-
-const startGameSuccess = function () {
-  console.log('call startGameSuccess')
-}
-
-const startGameFailure = function () {
-  console.log('call startGameFailure')
 }
 
 const displayNextPlayer = function (nextPlayer) {
@@ -90,12 +78,16 @@ const drawSymbol = function (symbol, index) {
 
 const declareWinner = function (player) {
   $('#game-result-modal .user-notification').text(`...player ${player} has won the game`)
-  $('#game-result-modal').modal()
+  $('#game-result-modal').modal({
+    backdrop: 'static'
+  })
 }
 
 const declareDraw = function () {
   $('#game-result-modal .user-notification').text('...it\'s a draw!')
-  $('#game-result-modal').modal()
+  $('#game-result-modal').modal({
+    backdrop: 'static'
+  })
 }
 
 const resetBoard = function () {
@@ -133,11 +125,8 @@ Object.assign(module.exports, {
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure,
   changePasswordSuccess,
   changePasswordFailure,
-  startGameSuccess,
-  startGameFailure,
   displayNextPlayer,
   displayInvalidMove,
   drawSymbol,

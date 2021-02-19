@@ -52,7 +52,6 @@ const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, tu
     // remove event listeners to avoid create n event listeners if n rounds are played
     $('#game-board').off()
     $('#carouselOldGamesIndicators .carousel-inner').off()
-    ui.resetBoard()
   }
   this.getApiDataFeed = function (cellIndex) {
     return {

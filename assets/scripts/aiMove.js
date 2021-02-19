@@ -20,7 +20,9 @@ const nextAiMove = function (game) {
     apiDataFeed = game.getApiDataFeed(selectedCell)
     api.updateGame(game, apiDataFeed)
       .then(() => {
-        game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
+        setTimeout(() => {
+          game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
+        }, 1000)
       })
       .catch(console.error)
   } else {

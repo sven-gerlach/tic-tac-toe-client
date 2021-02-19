@@ -42,7 +42,7 @@ const onSignUp = function (event) {
 const onSignOut = function () {
   api.signOut()
     .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+    .catch()
 }
 
 const onChangePassword = function (event) {
@@ -70,7 +70,6 @@ const onToggleButtons = function (event) {
 const onStartGame = function () {
   api.startGame()
     .then(response => {
-      ui.startGameSuccess()
       display.gamePage()
       const {symbol, turn, opponent, aiDifficulty} = collectNewGameSettings()
       store.game = response.game
@@ -78,12 +77,13 @@ const onStartGame = function () {
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty)
       gameLoop(game)
     })
-    .catch(ui.startGameFailure)
+    .catch()
 }
 
 // todo: generic: make alert windows not go away - so only option is to push the button
 // select an old game and finish it
 const onStartOldGame = function () {
+  ui.resetBoard()
   // update old games for most recent developments
   api.getGames()
     .then(response => {
