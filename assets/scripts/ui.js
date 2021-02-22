@@ -3,6 +3,7 @@ const display = require('./display')
 const GameStats = require('./game-stats').GameStats
 const store = require('./store').store
 const api = require('./api')
+const { Spinner } = require('spin.js')
 
 const signUpSuccess = function (data) {
   $('#sign-up-form').trigger('reset')
@@ -119,6 +120,10 @@ const populateGameBoard = function (cells) {
   })
 }
 
+const launchSpinner = function (target) {
+  return new Spinner().spin(target)
+}
+
 Object.assign(module.exports, {
   signUpSuccess,
   signUpFailure,
@@ -134,5 +139,6 @@ Object.assign(module.exports, {
   resetBoard,
   declareDraw,
   displayGameStats,
-  populateGameBoard
+  populateGameBoard,
+  launchSpinner
 })

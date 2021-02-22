@@ -11,7 +11,8 @@
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
     "please-wait": "0.0.5",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "spin.js": "^4.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

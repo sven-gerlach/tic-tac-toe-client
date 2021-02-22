@@ -12,10 +12,12 @@ const collectNewGameSettings = require('./game-settings').collectNewGameSettings
 
 const onSignIn = function (event) {
   event.preventDefault()
+  const spinner = ui.launchSpinner($('main')[0])
   const formData = getFormFields(event.target)
   // todo: show a spinner for all api calls
   api.signIn(formData)
     .then(data => {
+      spinner.stop()
       store.user = data.user
       ui.signInSuccess()
     })
@@ -24,6 +26,7 @@ const onSignIn = function (event) {
 
 const onSignUp = function (event) {
   event.preventDefault()
+  const spinner = ui.launchSpinner($('main')[0])
   const formData = getFormFields(event.target)
   api.signUp(formData)
     .then(data => {
@@ -31,6 +34,7 @@ const onSignUp = function (event) {
       ui.signUpSuccess()
       api.signIn(formData)
         .then(data => {
+          spinner.stop()
           store.user = data.user
           ui.signInSuccess()
         })
