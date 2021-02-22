@@ -81,13 +81,9 @@ const getInsaneAiNextMove = function (game, maxDepth) {
       return (!isMaximizing) ? 20 - depth : -20 + depth
     }
 
-    if (isDraw(game)) {
-      return depth
-    }
+    if (isDraw(game)) return depth
 
-    if (depth > maxDepth) {
-      return 0
-    }
+    if (depth > maxDepth) return 0
 
     if (isMaximizing) {
       let maxUtility = -Infinity
