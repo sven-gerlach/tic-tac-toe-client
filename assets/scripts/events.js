@@ -21,7 +21,10 @@ const onSignIn = function (event) {
       store.user = data.user
       ui.signInSuccess()
     })
-    .catch(ui.signInFailure)
+    .catch(() => {
+      spinner.stop()
+      ui.signInFailure()
+    })
 }
 
 const onSignUp = function (event) {
@@ -38,9 +41,15 @@ const onSignUp = function (event) {
           store.user = data.user
           ui.signInSuccess()
         })
-        .catch(ui.signInFailure)
+        .catch(() => {
+          spinner.stop()
+          ui.signInFailure()
+        })
     })
-    .catch(ui.signUpFailure)
+    .catch(() => {
+      spinner.stop()
+      ui.signUpFailure()
+    })
 }
 
 const onSignOut = function () {
@@ -112,7 +121,7 @@ const onStartOldGame = function () {
         display.hideCarousel()
       }
     })
-    .catch(console.error)
+    .catch()
 }
 
 // displays the game stats page, invokes API call to collect all played games
@@ -124,7 +133,7 @@ const onOpenGames = function () {
       const gameStats = new GameStats(store.games)
       ui.displayGameStats(gameStats)
     })
-    .catch(console.error)
+    .catch()
 }
 
 const onExitGame = function (game) {
@@ -136,7 +145,7 @@ const onExitGame = function (game) {
       $('#open-games-button span').text(gameStats.openGames)
       game.resetGameBoard()
     })
-    .catch(console.error)
+    .catch()
 }
 
 Object.assign(module.exports, {

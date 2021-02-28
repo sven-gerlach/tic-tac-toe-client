@@ -28,7 +28,7 @@ const signInSuccess = function () {
       const gameStats = new GameStats(store.games)
       $('#open-games-button span').text(gameStats.openGames)
     })
-    .catch(console.error)
+    .catch()
 }
 
 const signInFailure = function () {
@@ -99,7 +99,7 @@ const resetBoard = function () {
       const gameStats = new GameStats(store.games)
       $('#open-games-button span').text(gameStats.openGames)
     })
-    .catch(console.error)
+    .catch()
 }
 
 const displayGameStats = function (gameStats) {

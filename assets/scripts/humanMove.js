@@ -34,7 +34,7 @@ const nextHumanMove = function (game) {
               nextAiMove(game)
             }
           })
-          .catch(console.error)
+          .catch()
       }
     } else {
       ui.displayInvalidMove(game.player)

@@ -74,10 +74,14 @@ img {
       margin: 0 15px;
     }
   }
-  > div:last-of-type {
+  .user-notification {
     position: fixed;
-    bottom: 0
+    bottom: 0;
   }
+}
+
+.extend-to-bottom {
+  height: 100vh;
 }
 
 #nav-section {
@@ -170,4 +174,22 @@ img {
 
 .table .center-align {
   text-align: center;
+}
+
+@media (max-height: 700px) {
+  img {
+    max-height: 30vh;
+  }
+}
+
+@media (max-height: 500px) {
+  html {
+    font-size: 12px;
+  }
+  #sign-in-section,
+  #sign-up-section {
+    form {
+      margin-top: 20px;
+    }
+  }
 }

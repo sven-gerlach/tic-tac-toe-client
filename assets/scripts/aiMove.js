@@ -24,7 +24,7 @@ const nextAiMove = function (game) {
           game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
         }, 1000)
       })
-      .catch(console.error)
+      .catch()
   } else {
     apiDataFeed = game.getApiDataFeed(selectedCell)
     api.updateGame(game, apiDataFeed)
@@ -33,7 +33,7 @@ const nextAiMove = function (game) {
         ui.displayNextPlayer(game.player)
         humanMove.nextHumanMove(game)
       })
-      .catch(console.error)
+      .catch()
   }
 }
 
