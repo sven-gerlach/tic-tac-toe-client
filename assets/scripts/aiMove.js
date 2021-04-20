@@ -75,7 +75,7 @@ const getInsaneAiNextMove = function (game, maxDepth) {
   const nextPlayer = function (player) {
     return (player === 'X') ? 'O' : 'X'
   }
-
+  
   const minimax = function (game, depth, isMaximizing, player) {
     if (isWin(game, nextPlayer(player))) {
       return (!isMaximizing) ? 20 - depth : -20 + depth

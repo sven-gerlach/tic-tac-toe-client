@@ -1,5 +1,11 @@
 # Tic Tac Toe: a single-page-application of this popular game with an unbeatable AI opponent
 
+## Executive Summary
+- Browser-based single page application of the famous tic-tac-toe game
+- CRUDing on user and game state resources
+- User can control turn order, player symbol, and opponent settings, including difficulty
+- Unbeatable AI opponent based on minimax recursive algorithm (no alpha/beta pruning)
+
 ## Summary
 
 This application allows the user to play the popular game Tic Tac Toe by themselves, against other human players, or against a computer opponent.
@@ -11,6 +17,16 @@ The game itself is a one-to-one representation of the popular game, whereby two 
 Players can choose which symbol to play, <b>X or O</b>, which turn to take, <b>first or second</b>, and whether their opponent is <b>human or a computer</b>. If the latter option is selected, one can also choose the AI difficulty level. The most difficult level is in essence unbeatable with the best game outcome being a draw. This result has been achieved using the game theory derived minimax  algorithm. Due to the limited size of the game board alpha/beta pruning, as a way to improve time and space complexity, has been omitted.
 
 Besides offering the above game play adjustments, players can also choose from a list of all their unfinished games, select one from a carousel-type selection pane, and bring to a conclusion.
+
+## Technologies Used
+
+- HTML
+- CSS
+- SCSS
+- Javascript
+- jQuery
+- Bootstrap
+- Shell
 
 ## Important Links
 
@@ -140,16 +156,6 @@ Before this project was developed in code the below planning and workstream mana
 + As a user with an account, I want to be able to change my password.
 + As a new user who just created an account, I want to be able to go straight to the game app without having to sign in.
 + As a new user who doesn't know the game, I want to read some instructions so that I can play the game.
-
-### Technologies Used
-
-- HTML
-- CSS
-- SCSS
-- Javascript
-- jQuery
-- Bootstrap
-- Shell
 
 ### Unsolved Problems
 - Option for users to switch to full screen on their mobile devices inside their browsers
