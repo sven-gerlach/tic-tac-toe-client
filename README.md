@@ -2,7 +2,7 @@
 
 ## Executive Summary
 - Browser-based single page application of the famous tic-tac-toe game
-- CRUDing on user and game state resources
+- CRUDing user and game state resources on an API that was provided
 - User can control turn order, player symbol, and opponent settings, including difficulty
 - Unbeatable AI opponent based on minimax recursive algorithm (no alpha/beta pruning)
 

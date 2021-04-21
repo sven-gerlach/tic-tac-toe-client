@@ -64,4 +64,12 @@ $(() => {
   $('#play-new-game').on('click', display.setupNewGamePage)
   $('#choose-old-game').on('click', events.onStartOldGame)
   $('#stop-playing').on('click', display.gamePlayPage)
+
+  // Expedited sign-up logic
+  $('#expedited-sign-up-modal').modal({
+    backdrop: 'static',
+    keyboard: false,
+    show: true
+  })
+  $('#confirm-expedited-sign-up-button').on('click', events.onExpeditedSignUp)
 })

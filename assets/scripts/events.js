@@ -27,6 +27,31 @@ const onSignIn = function (event) {
     })
 }
 
+function onExpeditedSignUp (event) {
+  event.preventDefault()
+  // create a random email address and insert
+  const email = _randomStringGenerator(10) + '@random.com'
+  console.log(email)
+  // create a random password
+  const password = _randomStringGenerator(5)
+  console.log(password)
+  // insert email into sign-up form field
+  $('#sign-up-form input:nth-child(1)').val(email)
+  // insert password into sign-up form fields
+  $('#sign-up-form input:nth-child(2)').val(password)
+  $('#sign-up-form input:nth-child(3)').val(password)
+  $('#sign-up-form button[type=submit]').click()
+
+  function _randomStringGenerator (length) {
+    let result = ''
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return result
+  }
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   const spinner = ui.launchSpinner($('main')[0])
@@ -149,8 +174,9 @@ const onExitGame = function (game) {
 }
 
 Object.assign(module.exports, {
-  onSignUp,
   onSignIn,
+  onExpeditedSignUp,
+  onSignUp,
   onSignOut,
   onChangePassword,
   onToggleButtons,
