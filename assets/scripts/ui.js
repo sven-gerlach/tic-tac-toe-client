@@ -66,8 +66,8 @@ const displayNextPlayer = function (nextPlayer) {
 const displayInvalidMove = function (nextPlayer) {
   $('#game-section .user-notification').text('This field is not available!').removeClass('alert-info').addClass('alert-warning')
   setTimeout(() => {
-    displayNextPlayer(nextPlayer)
     $('#game-section .user-notification').removeClass('alert-warning').addClass('alert-info')
+    displayNextPlayer(nextPlayer)
   }, 5 * 1000)
 }
 

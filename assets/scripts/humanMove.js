@@ -10,6 +10,7 @@ const firstHumanMove = function (game) {
 const nextHumanMove = function (game) {
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
+      console.log(game.player)
       const selectedCell = $(event.target).data('game-board-index')
       let apiDataFeed
       game.updateGameBoard(selectedCell, game.player)
@@ -26,17 +27,15 @@ const nextHumanMove = function (game) {
       } else {
         apiDataFeed = game.getApiDataFeed(selectedCell)
         api.updateGame(game, apiDataFeed)
-          .then(() => {
-            game.setNextPlayer()
-            ui.displayNextPlayer(game.player)
-            if (game.opponent === 'Computer') {
-              $('#game-board').off()
-              nextAiMove(game)
-            }
-          })
-          .catch()
+        game.setNextPlayer()
+        ui.displayNextPlayer(game.player)
+        if (game.opponent === 'Computer') {
+          $('#game-board').off()
+          nextAiMove(game)
+        }
       }
     } else {
+      console.log(game.player)
       ui.displayInvalidMove(game.player)
     }
   })

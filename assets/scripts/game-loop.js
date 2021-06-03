@@ -5,10 +5,10 @@ const firstHumanMove = require('./humanMove').firstHumanMove
 const nextAiMove = require('./aiMove').nextAiMove
 
 const gameLoop = function (game) {
-  // if game.cells contains any X or O, prepare the game board for continuing an old game
   $('#exit-game').on('click', () => {
     events.onExitGame(game)
   })
+  // if game.cells contains any X or O, prepare the game board for continuing an old game
   if (game.cells.filter(symbol => symbol === 'X' || symbol === 'O').length > 0) {
     game.setFirstMover()
     ui.populateGameBoard(game.cells)
