@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="gradDynamic extend-to-bottom">
+      <main class="container extend-to-bottom">
+        <div id="nav-section">
+          <button id="game-play-button" class="btn btn-primary">Intro</button>
+          <div class="btn-group">
+            <button id="btnGroupDropGame" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Play
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDropGame">
+              <a id="setup-new-game-button" class="dropdown-item" href="#">Set-up New Game</a>
+              <a id="start-old-game-button" class="dropdown-item" href="#">Choose Old Game</a>
+            </div>
+          </div>
+          <button id="open-games-button" class="btn btn-primary">Games <span class="badge badge-light"></span></button>
+          <div class="btn-group">
+            <button id="btnGroupDropAccount" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDropAccount">
+              <a id="account-button" class="dropdown-item" href="#">Security</a>
+              <a id="sign-out-button" class="dropdown-item" href="#">Sign Out</a>
+            </div>
+          </div>
+        </div>
+        <section id="welcome-section">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="public/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
+            </div>
+          </div>
+          <nav class="row justify-content-around">
+            <button id="sign-in-button" class="btn btn-secondary btn-lg">Sign In</button>
+            <button id="sign-up-button" class="btn btn-secondary btn-lg">Create Account</button>
+          </nav>
+        </section>
+        <section id="sign-in-section">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="public/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col justify-content-around">
+              <form id="sign-in-form">
+                <div class="form-group">
+                  <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="e-Mail" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="row justify-content-between">
+                  <button type="submit" class="btn btn-secondary">Sign In</button>
+                  <button class="btn btn-secondary return-to-welcome-page">Return</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="user-notification alert"></div>
+            </div>
+          </div>
+        </section>
+        <section id="sign-up-section" class="extend-to-bottom">
+          <div class="row">
+            <div class="col align-self-center text-center">
+              <img src="public/images/tic-tac-toe-board.png" class="img-fluid" alt="Tic Tac Toe game board with some X and O placed on the board">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col justify-content-around">
+              <form id="sign-up-form">
+                <div class="form-group">
+                  <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="e-Mail" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password]" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password" required>
+                </div>
+                <div class="row justify-content-between">
+                  <button type="submit" class="btn btn-secondary">Sign Up</button>
+                  <button class="btn btn-secondary return-to-welcome-page">Return</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row extend-to-bottom">
+            <div class="col">
+              <div class="user-notification alert"></div>
+            </div>
+          </div>
+        </section>
+        <section id="game-play-section">
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="navigating-the-menu">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#navigating-the-menu-details" aria-expanded="false" aria-controls="navigating-the-menu-details">
+                    Navigating the Menu
+                  </button>
+                </h5>
+              </div>
+              <div id="navigating-the-menu-details" class="collapse" aria-labelledby="navigating-the-menu-details" data-parent="#accordion">
+                <div class="card-body">
+                  To play the game, please press the <b>"Play"</b> dropdown menu where you can choose to either start a new game or continue any unfinished ones.<br><br>The <b>"Games"</b> button displays a number of statistics, including how many of your games are unfinished.<br><br>On the <b>Account</b> dropdown menu you can find the <b>"Security"</b> button, which allows you to change your password, as well as the <b>Sign Out</b> button.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="game-setup">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#game-setup-details" aria-expanded="false" aria-controls="collapseTwo">
+                    New Game Setup
+                  </button>
+                </h5>
+              </div>
+              <div id="game-setup-details" class="collapse" aria-labelledby="game-setup-details" data-parent="#accordion">
+                <div class="card-body">
+                  You can choose which symbol to play, <b>X or O</b>, which turn to take, <b>first or second</b>, and whether your opponent is <b>human or a computer</b>. If you select to play against the computer as your opponent, you can also choose the AI difficulty level.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="game-rules">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#game-rules-details" aria-expanded="false" aria-controls="collapseOne">
+                    The Rules of the Game
+                  </button>
+                </h5>
+              </div>
+              <div id="game-rules-details" class="collapse" aria-labelledby="game-rules-details" data-parent="#accordion">
+                <div class="card-body">
+                  Two players are each allocated a game symbol of X and O respectively.  Both players take turns in placing their respective symbol into one of 9 cells that make up the game-board's 3 x 3 matrix.  Players must only stake their symbol to a cell that is as yet unencumbered.  Whichever player positions three of his symbols in a horizontal, vertical, or diagonal straight first, has won the game.  If the game board has no more empty cells for players to stake a move on and neither player has achieved to position three of their symbols in a straight line, the game results in a draw.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="new-game-setup-section">
+          <div class="container">
+            <div class="row align-items-center">
+              <h6 class="col-12">Symbol</h6>
+              <div id="symbol" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-4 active">X</button>
+                <button type="button" class="btn btn-sm btn-secondary col-4">O</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <h6 class="col-12">Turn</h6>
+              <div id="turn" class="container">
+                <button type="button" class="btn btn-sm btn-secondary col-4 active">First</button>
+                <button type="button" class="btn btn-sm btn-secondary col-4">Second</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <h6 class="col-12">Opponent</h6>
+              <div id="opponent" class="container">
+                <button id="hide-ai-difficulty-section" type="button" class="btn btn-sm btn-secondary col-4 active">Human</button>
+                <button id="show-ai-difficulty-section" type="button" class="btn btn-sm btn-secondary col-4">Computer</button>
+              </div>
+            </div>
+            <div id="ai-difficulty-section" class="row align-items-center">
+              <h6 class="col-12">Computer AI Difficulty</h6>
+              <div id="aiDifficulty" class="container">
+                <button type="button" class="btn btn-sm btn-success col-3 active">Easy</button>
+                <button type="button" class="btn btn-sm btn-warning col-3">Hard</button>
+                <button type="button" class="btn btn-sm btn-danger col-3">Insane</button>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-12">
+                <button id="start-game-button" type="button" class="btn btn-primary">Start</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="game-section">
+          <nav>
+            <button id="exit-game" class="btn btn-secondary">Exit Game</button>
+          </nav>
+          <div class="container">
+            <div class="user-notification alert alert-info"></div>
+            <div id="game-board">
+              <div data-game-board-index="0"></div>
+              <div data-game-board-index="1"></div>
+              <div data-game-board-index="2"></div>
+              <div data-game-board-index="3"></div>
+              <div data-game-board-index="4"></div>
+              <div data-game-board-index="5"></div>
+              <div data-game-board-index="6"></div>
+              <div data-game-board-index="7"></div>
+              <div data-game-board-index="8"></div>
+            </div>
+          </div>
+        </section>
+        <section id="old-game-section">
+          <div class="container">
+            <div id="carouselOldGamesIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <!-- This is where JS will insert indicators for old games -->
+              </ol>
+              <div class="carousel-inner">
+                <!-- This is where JS will insert old games -->
+              </div>
+              <a class="carousel-control-prev" href="#carouselOldGamesIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselOldGamesIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="user-notification alert alert-info"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="open-games-section">
+          <div class="container">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th class="center-align" scope="col">Games</th>
+                  <th class="center-align" scope="col">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Started</th>
+                  <td class="center-align" id="started-absolute"></td>
+                  <td class="center-align" id="started-percent"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Finished</th>
+                  <td class="center-align" id="finished-absolute"></td>
+                  <td class="center-align" id="finished-percent"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Open</th>
+                  <td class="center-align" id="open-absolute"></td>
+                  <td class="center-align" id="open-percent"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="account-section">
+          <div class="container">
+            <div class="row">
+              <div class="col justify-content-around">
+                <form id="change-password-form">
+                  <div class="form-group">
+                    <label for="change-password-form">You can change your password here:</label>
+                    <input name="passwords[old]" type="password" class="form-control" aria-describedby="old password" placeholder="old password" required>
+                  </div>
+                  <div class="form-group">
+                    <input name="passwords[new]" type="password" class="form-control" placeholder="new password" required>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+                <div class="user-notification alert"></div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        <!-- game result modal -->
+        <div class="modal fade" id="game-result-modal" tabindex="-1" role="dialog" aria-labelledby="Game Result Announcement" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">And the Result is...</h5>
+              </div>
+              <div class="modal-body user-notification"></div>
+              <div class="modal-footer">
+                <button id="play-new-game" type="button" class="btn btn-primary" data-dismiss="modal">Play New Game</button>
+                <button id="choose-old-game" type="button" class="btn btn-primary" data-dismiss="modal">Choose Old Game</button>
+                <button id="stop-playing" type="button" class="btn btn-secondary" data-dismiss="modal">I'll Stop Here</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal for expedited sign-up -->
+        <div class="modal fade" id="expedited-sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="expedited-sign-up-title">
+                  In a Hurry?
+                </h5>
+              </div>
+              <div class="modal-body" id="expedited-sign-up-body">
+                <p>Please click on the "Expedited Sign-In" button if you don't want to create your own account and do not care for user data persistence across sessions.</p>
+                <p>Otherwise, please close this dialog and sign-up / sign-in instead.</p>
+              </div>
+              <div class="modal-footer">
+                <button id="cancel-expedited-sign-up-button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="confirm-expedited-sign-up-button" type="button" class="btn btn-primary" data-dismiss="modal">Expedited Sign-Up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+</html>
