@@ -10,7 +10,6 @@ const firstHumanMove = function (game) {
 const nextHumanMove = function (game) {
   $('#game-board').on('click', (event) => {
     if (game.isValidMove(event.target)) {
-      console.log(game.player)
       const selectedCell = $(event.target).data('game-board-index')
       let apiDataFeed
       game.updateGameBoard(selectedCell, game.player)
@@ -35,7 +34,6 @@ const nextHumanMove = function (game) {
         }
       }
     } else {
-      console.log(game.player)
       ui.displayInvalidMove(game.player)
     }
   })

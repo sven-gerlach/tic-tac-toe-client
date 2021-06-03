@@ -4,37 +4,33 @@ const humanMove = require('./humanMove')
 
 const nextAiMove = function (game) {
   // collect the index of all empty cells in an array
-  let selectedCell
-  if (game.aiDifficulty === 'Easy') {
-    selectedCell = getEasyAiNextMove(game)
-  } else if (game.aiDifficulty === 'Hard') {
-    selectedCell = getInsaneAiNextMove(game, 2)
-  } else {
-    selectedCell = getInsaneAiNextMove(game, 8)
-  }
-  let apiDataFeed
-  game.updateGameBoard(selectedCell, game.player)
-  if (game.isWon() || game.isDraw()) {
-    // reset game before api update
-    game.resetGameBoard()
-    apiDataFeed = game.getApiDataFeed(selectedCell)
-    api.updateGame(game, apiDataFeed)
-      .then(() => {
-        setTimeout(() => {
-          game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
-        }, 1000)
-      })
-      .catch()
-  } else {
-    apiDataFeed = game.getApiDataFeed(selectedCell)
-    api.updateGame(game, apiDataFeed)
-      .then(() => {
-        game.setNextPlayer()
-        ui.displayNextPlayer(game.player)
-        humanMove.nextHumanMove(game)
-      })
-      .catch()
-  }
+  setTimeout(() => {
+    let selectedCell
+    if (game.aiDifficulty === 'Easy') {
+      selectedCell = getEasyAiNextMove(game)
+    } else if (game.aiDifficulty === 'Hard') {
+      selectedCell = getInsaneAiNextMove(game, 2)
+    } else {
+      selectedCell = getInsaneAiNextMove(game, 8)
+    }
+    let apiDataFeed
+    game.updateGameBoard(selectedCell, game.player)
+    if (game.isWon() || game.isDraw()) {
+      // reset game before api update
+      game.resetGameBoard()
+      apiDataFeed = game.getApiDataFeed(selectedCell)
+      api.updateGame(game, apiDataFeed)
+      setTimeout(() => {
+        game.isWon() ? ui.declareWinner(game.player) : ui.declareDraw()
+      }, 1000)
+    } else {
+      apiDataFeed = game.getApiDataFeed(selectedCell)
+      api.updateGame(game, apiDataFeed)
+      game.setNextPlayer()
+      ui.displayNextPlayer(game.player)
+      humanMove.nextHumanMove(game)
+    }
+  }, 1000)
 }
 
 const getEasyAiNextMove = function (game) {
@@ -75,7 +71,7 @@ const getInsaneAiNextMove = function (game, maxDepth) {
   const nextPlayer = function (player) {
     return (player === 'X') ? 'O' : 'X'
   }
-  
+
   const minimax = function (game, depth, isMaximizing, player) {
     if (isWin(game, nextPlayer(player))) {
       return (!isMaximizing) ? 20 - depth : -20 + depth

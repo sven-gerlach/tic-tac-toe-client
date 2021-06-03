@@ -31,10 +31,8 @@ function onExpeditedSignUp (event) {
   event.preventDefault()
   // create a random email address and insert
   const email = _randomStringGenerator(10) + '@random.com'
-  console.log(email)
   // create a random password
   const password = _randomStringGenerator(5)
-  console.log(password)
   // insert email into sign-up form field
   $('#sign-up-form input:nth-child(1)').val(email)
   // insert password into sign-up form fields
