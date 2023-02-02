@@ -25,6 +25,12 @@ Besides offering the above game play adjustments, players can also choose from a
 3. Run `npm i`
 4. To start the local dev server run `grunt s`
 
+## Deployment
+
+This app is deployed on AWS Amplify. All the deployment instructions are codified in [amplify.yml](./amplify.yml). A 
+CI/CD pipeline is set up for the main branch such that any push or merge into main results in a new deployment. The
+main branch is deployed at this [URL](https://main.d2fre69usz6no8.amplifyapp.com).
+
 ## Technologies Used
 
 - HTML
