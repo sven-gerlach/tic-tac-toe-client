@@ -41,10 +41,10 @@ main branch is deployed at this [URL](https://main.d2fre69usz6no8.amplifyapp.com
 - Bootstrap
 - Shell
 
-## Important Links
+## Important URLs
 
-- [Deployed App](https://sven-gerlach.github.io/tic-tac-toe-client/)
-- [Deployed API](https://tic-tac-toe-api-production.herokuapp.com/)
+- [Deployed Client](https://main.d2fre69usz6no8.amplifyapp.com)
+- [Deployed API](http://tictactoeapi-env.eba-hpiuzwz2.us-east-1.elasticbeanstalk.com/)
 
 ## Planning Story
 
