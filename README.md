@@ -18,6 +18,13 @@ Players can choose which symbol to play, <b>X or O</b>, which turn to take, <b>f
 
 Besides offering the above game play adjustments, players can also choose from a list of all their unfinished games, select one from a carousel-type selection pane, and bring to a conclusion.
 
+## Local Development
+
+1. Run `git clone git@github.com:sven-gerlach/tic-tac-toe-client.git`
+2. Run `nvm run` to ensure the correct node and npm versions are used (*Note*: this app does not run on newer versions)
+3. Run `npm i`
+4. To start the local dev server run `grunt s`
+
 ## Technologies Used
 
 - HTML
