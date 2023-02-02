@@ -2,6 +2,12 @@
 const config = require('./config')
 const store = require('./store').store
 
+/**
+ * The API expects the body to have the following signature:
+ * data = { credentials: { email, password, password_confirmation }}
+ * @param data
+ * @return {*}
+ */
 const signUp = function (data) {
   return $.ajax({
     method: 'POST',
@@ -10,6 +16,12 @@ const signUp = function (data) {
   })
 }
 
+/**
+ * The API expects the body to have the following signature:
+ * data = { credentials: { email, password }}
+ * @param data
+ * @return {*}
+ */
 const signIn = function (data) {
   return $.ajax({
     method: 'POST',
