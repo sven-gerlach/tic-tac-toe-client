@@ -10,6 +10,9 @@
     "software": "GNU GPLv3",
     "content": "CC­BY­NC­SA 4.0"
   },
+  "scripts": {
+    "start:dev": "grunt s"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",

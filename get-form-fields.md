@@ -117,7 +117,6 @@ data['movie']['title'] = 'A movie title our user gave us'
 */
 
 data['book']['author'] = 'A book author we want to be grouped with the book title'
-console.log(data)
 /*
 {
   movie: { title: 'A movie title our user gave us' },
