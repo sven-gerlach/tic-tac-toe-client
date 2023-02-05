@@ -17,9 +17,12 @@ const onSignIn = function (event) {
   // todo: show a spinner for all api calls
   api.signIn(formData)
     .then(data => {
-      spinner.stop()
-      store.user = data.user
+      if (!data.accessToken) {
+        throw new Error('The key \'accessToken\' is missing')
+      }
+      store.user = { user: data }
       ui.signInSuccess()
+      spinner.stop()
     })
     .catch(() => {
       spinner.stop()
@@ -56,12 +59,12 @@ const onSignUp = function (event) {
   const formData = getFormFields(event.target)
   api.signUp(formData)
     .then(data => {
-      store.user = data.user
+      store.user = data
       ui.signUpSuccess()
       api.signIn(formData)
         .then(data => {
           spinner.stop()
-          store.user = data.user
+          store.user.token = data.accessToken
           ui.signInSuccess()
         })
         .catch(() => {

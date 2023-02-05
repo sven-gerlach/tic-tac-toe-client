@@ -11,8 +11,8 @@ const store = require('./store').store
 const signUp = function (data) {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/sign-up',
-    data: data
+    url: config.apiUrl + '/user/create',
+    data: data.credentials
   })
 }
 
@@ -25,8 +25,8 @@ const signUp = function (data) {
 const signIn = function (data) {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/sign-in',
-    data: data
+    url: config.apiUrl + '/auth/login',
+    data: data.credentials
   })
 }
 
