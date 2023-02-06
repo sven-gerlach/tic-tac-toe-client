@@ -44,7 +44,7 @@ main branch is deployed at this [URL](https://main.d2fre69usz6no8.amplifyapp.com
 ## Important URLs
 
 - [Deployed Client](https://main.d2fre69usz6no8.amplifyapp.com)
-- [Deployed API](http://tictactoeapi-env.eba-hpiuzwz2.us-east-1.elasticbeanstalk.com/)
+- [Deployed API](https://tictactoeapi-env.eba-hpiuzwz2.us-east-1.elasticbeanstalk.com/)
 
 ## Planning Story
 
