@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://tic-tac-toe-api-development.herokuapp.com',
+  production: 'http://tictactoeapi-env.eba-hpiuzwz2.us-east-1.elasticbeanstalk.com',
   development: 'http://localhost:3000'
 }
 
