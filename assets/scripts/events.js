@@ -20,7 +20,7 @@ const onSignIn = function (event) {
       if (!data.accessToken) {
         throw new Error('The key \'accessToken\' is missing')
       }
-      store.user = { user: data }
+      store.user = { token: data.accessToken }
       ui.signInSuccess()
       spinner.stop()
     })
@@ -80,13 +80,19 @@ const onSignUp = function (event) {
 
 const onSignOut = function () {
   api.signOut()
-    .then(ui.signOutSuccess)
+    .then(() => {
+      // delete token from store
+      delete store.user
+      // invoke UI changes
+      ui.signOutSuccess()
+    })
     .catch()
 }
 
 const onChangePassword = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
+  console.log(formData)
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)

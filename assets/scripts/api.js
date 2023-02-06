@@ -31,19 +31,31 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
+  console.log(store)
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/sign-out',
+    url: config.apiUrl + '/auth/sign-out',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
+/**
+ * Data object has the following signature:
+ * {
+ *   passwords: {
+ *     new: string,
+ *     old: string
+ *   }
+ * }
+ * @param data
+ * @return {*}
+ */
 const changePassword = function (data) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/change-password',
+    url: config.apiUrl + '/auth/change-password',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
