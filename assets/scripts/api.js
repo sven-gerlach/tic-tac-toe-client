@@ -3,10 +3,12 @@ const config = require('./config')
 const store = require('./store').store
 
 /**
- * The API expects the body to have the following signature:
- * data = { credentials: { email, password, password_confirmation }}
- * @param data
- * @return {*}
+ * Makes a POST request to the API to create a user.
+ *
+ * @function
+ * @param {Object} data - { credentials: { email, password, password_confirmation }}
+ * @param {Object} data.credentials - The user credentials.
+ * @returns {Object} - The jQuery AJAX object representing the API request.
  */
 const signUp = function (data) {
   return $.ajax({
@@ -31,7 +33,6 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
-  console.log(store)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/auth/sign-out',
@@ -63,6 +64,10 @@ const changePassword = function (data) {
   })
 }
 
+/**
+ * A game object contains the following properties: { cells, over, _id, owner, createdAt, updatedAt }
+ * @return {*}
+ */
 const startGame = function () {
   return $.ajax({
     method: 'POST',
