@@ -65,7 +65,14 @@ const changePassword = function (data) {
 }
 
 /**
- * A game object contains the following properties: { cells, over, _id, owner, createdAt, updatedAt }
+ * The Response has the following signature: { game: { cells, over, _id, owner, createdAt, updatedAt } }
+ * where:
+ *    cells: string[] with 9 string array elements
+ *    over: boolean
+ *    _id: id
+ *    owner: string
+ *    createdAt: datetime
+ *    updatedAt: datetime
  * @return {*}
  */
 const startGame = function () {
@@ -79,6 +86,21 @@ const startGame = function () {
   })
 }
 
+/**
+ * Data object signature:
+ * {
+ *   game: {
+ *     cells: {
+ *       index: int,
+ *       value: string,
+ *     },
+ *     over: boolean,
+ *   },
+ * }
+ * @param game
+ * @param data
+ * @return {*}
+ */
 const updateGame = function (game, data) {
   return $.ajax({
     method: 'PATCH',
@@ -91,6 +113,13 @@ const updateGame = function (game, data) {
 }
 
 // todo: this function is called multiple times (unnecessarily so) when exiting a game
+/**
+ * Retrieve all games associated with authenticated user. Response signature:
+ * { games: [
+ *   { cells, over, _id, owner, createdAt, updatedAt }
+ * ] }
+ * @return {*}
+ */
 const getGames = function () {
   return $.ajax({
     method: 'GET',

@@ -3,7 +3,7 @@ const ui = require('./ui')
 
 const Game = function (cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty) {
   this.cells = cells
-  this.over = over
+  this.over = Boolean(over)
   this.id = _id
   this.player = symbol
   this.owner = owner
