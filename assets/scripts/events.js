@@ -115,7 +115,7 @@ const onStartGame = function () {
   api.startGame()
     .then(response => {
       display.gamePage()
-      const {symbol, turn, opponent, aiDifficulty} = collectNewGameSettings()
+      const { symbol, turn, opponent, aiDifficulty } = collectNewGameSettings()
       store.game = response.game
       const { cells, over, _id, owner, createdAt, updatedAt } = store.game
       const game = new gameModule.Game(cells, over, _id, owner, createdAt, updatedAt, symbol, turn, opponent, aiDifficulty)
