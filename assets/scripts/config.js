@@ -2,8 +2,8 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://ti-sq80.onrender.com',
-  development: 'http://localhost:3000'
+  production: 'https://lshtt05434.execute-api.us-east-1.amazonaws.com/prod',
+  development: 'http://localhost:3000/dev'
 }
 
 if (window.location.hostname === 'localhost') {
