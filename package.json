@@ -11,7 +11,8 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "scripts": {
-    "start:dev": "grunt s"
+    "start:dev": "grunt s",
+    "build": "grunt build"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

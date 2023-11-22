@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://lshtt05434.execute-api.us-east-1.amazonaws.com/prod',
+  production: 'https://tic-tac-toe-iu10.onrender.com',
   development: 'http://localhost:3000/dev'
 }
 
