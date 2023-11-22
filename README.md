@@ -27,9 +27,7 @@ Besides offering the above game play adjustments, players can also choose from a
 
 ## Deployment
 
-This app is deployed on AWS Amplify. All the deployment instructions are codified in [amplify.yml](./amplify.yml). A 
-CI/CD pipeline is set up for the main branch such that any push or merge into main results in a new deployment. The
-main branch is deployed at this [URL](https://main.d2fre69usz6no8.amplifyapp.com).
+This app is deployed on [Render](https://tictactoe.sigmagamma.app). The accompanying API is also hosted on [Render](https://tic-tac-toe-iu10.onrender.com).
 
 ## Technologies Used
 
